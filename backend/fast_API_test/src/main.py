@@ -97,7 +97,7 @@ async def delete_citezen(citizen_LD: int):
         citizens.remove(del_citizen)
         return citizens
     else:
-        return "citizen with the same LD not exist"  
+        return "citizen with the same LD not exist"      
 
 
 # @app.get("/items/{item_id}")

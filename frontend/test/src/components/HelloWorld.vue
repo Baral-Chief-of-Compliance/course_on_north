@@ -72,7 +72,7 @@
             rel="noopener noreferrer"
             target="_blank"
             variant="text"
-            @click="$router.push('/test_1')"
+            @click="$router.push('/test-1')"
           >
             <v-icon
               icon="mdi-test-tube"

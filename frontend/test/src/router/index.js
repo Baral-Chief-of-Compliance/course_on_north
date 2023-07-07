@@ -19,13 +19,23 @@ const routes = [
   },
 
   {
-    path: '/test_1',
+    path: '/test-1',
     component: () => import('@/layouts/test/DefaultTest.vue'),
     children: [
       {
         path: '',
         name: 'TestHome_1',
         component: () => import('@/views/Test_1.vue')
+      },
+      {
+        path: '/anketa-soiskatelya',
+        name: 'AnketaSoiskatelya',
+        component: () => import('@/components/test_1/AnketaSoiskatelya.vue')
+      },
+      {
+        path: '/map-czn',
+        name: 'map-czn',
+        component: () => import('@/components/test_1/Map.vue')
       }
     ]
   }

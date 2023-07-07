@@ -1,4 +1,33 @@
 <template>
+
+        <v-carousel
+            cycle
+            height="650"
+            hide-delimiter-background
+            show-arrows="hover"
+        > 
+
+            <v-carousel-item
+                v-for="(slide, i) in slides"
+            :key="i"
+            >
+
+                <v-sheet
+                    :color="colors[i]"
+                    height="100%"
+                >
+
+                    <div class="d-flex fill-height justify-center align-center">
+                        <div class="text-h2">
+                            {{ slide }} Slide
+                        </div>
+                    </div>
+                </v-sheet>
+            </v-carousel-item>
+        </v-carousel>
+
+
+
     <v-container>
         <div id="test-Montserrat">
 В связи с современным запросом общества на защиту суверенитета государства создание центров гражданско-патриотического воспитания является важным, целесообразным и актуальным</div>
@@ -17,21 +46,24 @@
 import axios from 'axios';
 
 export default{
-    data: () => ({
-        name: null,
-        surname: null,
-        patronomic: null
-    }),
-
-    // methods: {
-    //     send_data(){
-    //         axios.post("http://127.0.0.1:8000/citizens", {
-    //             name: this.name,
-    //             surname: this.surname,
-    //             patronomic: this.patronomic
-    //         })
-    //     }
-    // }
+    data () {
+      return {
+        colors: [
+          'indigo',
+          'warning',
+          'pink darken-2',
+          'red lighten-1',
+          'deep-purple accent-4',
+        ],
+        slides: [
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+        ],
+      }
+    },
 }
 </script>
 
