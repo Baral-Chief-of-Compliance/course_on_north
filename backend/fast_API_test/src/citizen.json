@@ -1,0 +1,23 @@
+[
+    {
+        "number_LD": 1,
+        "surname": "Сафронова",
+        "name": "",
+        "patronymic": "",
+        "born": "15.09.1974"
+    },
+    {        
+        "number_LD": 2,
+        "surname": "Каменская",
+        "name": "Калерия",
+        "patronymic": "Юрьевна",
+        "born": "13.04.2003"
+    },
+    {
+        "number_LD": 3,
+        "surname": "Алексеев",
+        "name": "Капитон",
+        "patronymic": "Юрьевич",
+        "born": "18.10.1995"  
+    }
+]
