@@ -3,7 +3,7 @@
         <v-container>
             <v-row>
                  <v-col class="nav-option">
-                    <router-link to="/">О ПРОЕКТЕ</router-link> 
+                    <router-link to="/test-1">О ПРОЕКТЕ</router-link> 
                  </v-col>
                  <v-col class="nav-option">
                     <router-link to="/">СТРУКТУРА</router-link>

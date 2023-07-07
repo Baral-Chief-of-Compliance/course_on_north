@@ -14,7 +14,7 @@
                     <v-row id="address" class="text-left mt-15 mr-15">Мурманская область. ГОБУ Центр занятости населения г.Мурманска. Улица Книповича 48</v-row>
 
                     <v-row class="mt-10">
-                        <v-btn id="btn-send-anket">НАЙДИТЕ НАС НА КАРТЕ</v-btn>
+                        <v-btn @click="go_on_map" id="btn-send-anket">НАЙДИТЕ НАС НА КАРТЕ</v-btn>
                     </v-row>
                     
                 </v-col>
@@ -31,7 +31,13 @@
 </template>
 
 <script>
-
+export default{
+    methods: {
+        go_on_map(){
+            this.$router.push({name: 'map-czn'})
+        }
+    }
+}
 </script>
 
 
