@@ -3,10 +3,10 @@
         <v-container>
             <v-row>
                  <v-col class="nav-option">
-                    <router-link to="/test-1">О ПРОЕКТЕ</router-link> 
+                    <v-btn @click="go_to_about_project">О ПРОЕКТЕ</v-btn>
                  </v-col>
                  <v-col class="nav-option">
-                    <router-link to="/">СТРУКТУРА</router-link>
+                    <v-btn @click="go_to_struct">СТРУКТУРА</v-btn>
                 </v-col>
                 <v-col class="nav-option">
                     <router-link to="/">КЛИЕНТЫ</router-link>
@@ -26,6 +26,23 @@
 </template>
 
 <script>
+
+export default{
+    data () {
+        return {
+
+        }
+    },
+
+    methods: {
+        go_to_about_project(){
+            window.scrollTo({ top: 700, behavior: 'smooth'})
+        },
+        go_to_struct(){
+            window.scrollTo({ top: 400, behavior: 'smooth'})
+        }
+    }
+}
 </script>
 
 <style>
