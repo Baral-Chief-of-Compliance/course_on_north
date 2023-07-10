@@ -8,17 +8,14 @@
                  <v-col class="nav-option">
                     <v-btn @click="go_to_struct">СТРУКТУРА</v-btn>
                 </v-col>
-                <v-col class="nav-option">
-                    <router-link to="/">КЛИЕНТЫ</router-link>
+                <v-col class="nav-option mr-10">
+                    <v-btn @click="go_to_clients">КЛИЕНТЫ И ПАРТНЕРЫ</v-btn>
                 </v-col>
                 <v-col class="nav-option">
-                    <router-link to="/">ПАРТНЕРЫ</router-link>
+                    <v-btn @click="go_to_anketa_soiskatelya">СОИСКАТЕЛЮ</v-btn>
                 </v-col>
                 <v-col class="nav-option">
-                    <router-link :to="{ name: 'AnketaSoiskatelya' }">СОИСКАТЕЛЮ</router-link>
-                </v-col>
-                <v-col class="nav-option">
-                    <router-link to="/">РАБОТОДАТЕЛЮ</router-link>
+                     <v-btn @click="go_to_anketa_employer">РАБОТОДАТЕЛЮ</v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -38,9 +35,27 @@ export default{
         go_to_about_project(){
             window.scrollTo({ top: 700, behavior: 'smooth'})
         },
+
         go_to_struct(){
-            window.scrollTo({ top: 400, behavior: 'smooth'})
+            window.scrollTo({ top: 1500, behavior: 'smooth'})
+        },
+
+        go_to_clients(){
+            window.scrollTo({ top: 2300, behavior: 'smooth'})
+        },
+
+        go_to_anketa_soiskatelya(){
+            this.$router.push({name: "AnketaSoiskatelya"})
+        },
+
+        go_to_anketa_employer(){
+            this.$router.push({name: "AnketaEmployer"})
         }
+
+    },
+
+    mounted(){
+
     }
 }
 </script>

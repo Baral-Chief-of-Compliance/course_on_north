@@ -5,11 +5,20 @@
     >
         <v-container class="my-15">
             <v-row>
-                <v-col><div class="rights">© 2023 «Курс на Север»</div></v-col>
+                <v-col>
+                    <v-img
+                        src="../../assets/logo/white_logo.svg"
+                        max-height="220"
+                        max-width="220"
+                        contain
+                        class="ml-15 mb-15"
+                    ></v-img>    
+                    <div class="rights">© 2023 «Курс на Север»</div>
+                </v-col>
                 <v-col>
                     <v-row><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></v-row>
-                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <div class="ml-3" id="mail" >info@courseonnorth.center</div></v-row>
-                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <div class="ml-3" id="vk">vk.com/courseonnorth.center</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></v-row>
 
                     <v-row id="address" class="text-left mt-15 mr-15">Мурманская область. ГОБУ Центр занятости населения г.Мурманска. Улица Книповича 48</v-row>
 
@@ -48,6 +57,7 @@ export default{
     color: white;
     font-family: "MontserratMedium";
     font-size: 12px;
+    margin-top: 70px;
 }
 
 #phone_number{
@@ -62,10 +72,22 @@ export default{
     font-size: 25px 
 }
 
+#mail:hover{
+    color: #D1E0E6;
+}
+
 #vk{
     color: white;
     font-family: "CorkiRegular";
     font-size: 25px  
+}
+
+#vk:hover{
+    color: #D1E0E6;
+}
+
+a{
+    text-decoration: none;
 }
 
 #address{

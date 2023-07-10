@@ -1,46 +1,8 @@
 <template>
-
-        <v-carousel
-            cycle
-            height="690"
-            hide-delimiter-background
-            show-arrows="hover"
-            color="#2F5DA7"
-        > 
-
-            <v-carousel-item
-            >
-                <img  class="img_carousel" src="../../assets/images_for_carousel/logo_course.jpg"/>
-            </v-carousel-item>
-
-            <v-carousel-item
-            >
-                <v-img
-                    src="../../assets/images_for_carousel/target_project.jpg"
-                ></v-img>
-            </v-carousel-item>
-
-            <v-carousel-item
-            >
-                <v-img
-                    src="../../assets/images_for_carousel/recruting.jpg"
-                ></v-img>
-            </v-carousel-item>
-
-            <v-carousel-item
-            >
-                <img  class="img_carousel" src="../../assets/images_for_carousel/client_route.jpg" />
-            </v-carousel-item>
-
-            <v-carousel-item
-            >  
-                <img  class="img_carousel" src="../../assets/images_for_carousel/naseverezhit.jpg" />
-            </v-carousel-item>
-
-        </v-carousel>
-
-        
+        <carousel />
         <about-project />
+        <structure />
+        <clients-info />
     <v-container>
         <div class="test-Montserrat">
 В связи с современным запросом общества на защиту суверенитета государства создание центров гражданско-патриотического воспитания является важным, целесообразным и актуальным</div>
@@ -58,6 +20,9 @@
 <script>
 import axios from 'axios';
 import AboutProject from './AboutProject.vue';
+import Carousel from './Carousel.vue';
+import Structure from './Structure.vue';
+import ClientsInfo from './ClientsInfo.vue';
 
 
 export default{
@@ -88,7 +53,10 @@ export default{
     },
 
     components: {
-        AboutProject
+        AboutProject,
+        Carousel,
+        Structure,
+        ClientsInfo
     }
 }
 </script>

@@ -33,6 +33,11 @@ const routes = [
         component: () => import('@/components/test_1/AnketaSoiskatelya.vue')
       },
       {
+        path: '/anketa-employer',
+        name: 'AnketaEmployer',
+        component: () => import('@/components/test_1/AnketaEmployer.vue')
+      },
+      {
         path: '/map-czn',
         name: 'map-czn',
         component: () => import('@/components/test_1/Map.vue')
