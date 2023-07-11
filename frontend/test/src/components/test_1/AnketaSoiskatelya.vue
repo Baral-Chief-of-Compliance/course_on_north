@@ -1,4 +1,4 @@
-`<template>
+<template>
     <v-container>
         <v-btn @click="go_back"  variant="outlined" class="my-5">
             <v-icon icon="mdi-arrow-collapse-left" color="#2F5DA7" class="mr-2"></v-icon>на главную

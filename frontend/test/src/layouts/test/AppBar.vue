@@ -21,7 +21,7 @@
                 </v-col>
 
                 <v-col>
-                    <v-btn @click="go_to_clients"><span class="nav-option">НОВОСТИ</span></v-btn>
+                    <v-btn @click="go_to_news"><span class="nav-option">НОВОСТИ</span></v-btn>
                 </v-col>
 
                 <v-col>
@@ -64,6 +64,10 @@ export default{
 
         go_to_anketa_employer(){
             this.$router.push({name: "AnketaEmployer"})
+        },
+
+        go_to_news(){
+            this.$router.push({name: "News"})
         }
 
     },

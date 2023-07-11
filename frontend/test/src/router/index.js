@@ -41,6 +41,12 @@ const routes = [
         path: '/map-czn',
         name: 'map-czn',
         component: () => import('@/components/test_1/Map.vue')
+      },
+
+      {
+        path: '/news',
+        name: 'News',
+        component: () => import('@/components/test_1/News.vue')
       }
     ]
   }
