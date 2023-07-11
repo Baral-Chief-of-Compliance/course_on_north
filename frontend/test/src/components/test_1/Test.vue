@@ -1,18 +1,10 @@
 <template>
         <carousel />
+        <video-info />
         <about-project />
         <structure />
         <clients-info />
-    <v-container>
-        <div class="test-Montserrat">
-В связи с современным запросом общества на защиту суверенитета государства создание центров гражданско-патриотического воспитания является важным, целесообразным и актуальным</div>
-        <div class="title-for-page-corki">ГРАЖДАНСКО-ПАТРИОТИЧЕСКОЕ ВОСПИТАНИЕ МОЛОДЁЖИ</div>
-        <div class="text-h3 mt-10">Заполните заявку</div>
-        <v-text-field class="mt-5" color="#EB6635" label="Фамилия"></v-text-field>
-        <v-text-field color="#EB6635" label="Имя"></v-text-field>
-        <v-text-field class="mb-5" color="#EB6635" label="Отчетсво"></v-text-field>
-        <v-btn color="#2994d1" block>Оставить заявку</v-btn>
-    </v-container>
+        <go-to-anketa-participant />
 
 </template>
 
@@ -23,6 +15,9 @@ import AboutProject from './AboutProject.vue';
 import Carousel from './Carousel.vue';
 import Structure from './Structure.vue';
 import ClientsInfo from './ClientsInfo.vue';
+import VideoInfo from './VideoInfo.vue';
+import GoToAnketaParticipant from './GoToAnketaParticipant.vue';
+
 
 
 export default{
@@ -56,7 +51,9 @@ export default{
         AboutProject,
         Carousel,
         Structure,
-        ClientsInfo
+        ClientsInfo,
+        VideoInfo,
+        GoToAnketaParticipant
     }
 }
 </script>
@@ -97,7 +94,7 @@ export default{
     font-family: "MontserratMedium";
     src: url("../../assets/Montserrat/Montserrat-Regular.eot");
     src: url("../../assets/Montserrat/Montserrat-Regular.eot?#iefix")format("embedded-opentype"),
-    url("../../assets/Montserrat/Montserrat-Regulart.woff") format("woff"),
+    url("../../assets/Montserrat/Montserrat-Regular.woff") format("woff"),
     url("../../assets/Montserrat/Montserrat-Regular.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;

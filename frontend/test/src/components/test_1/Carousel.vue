@@ -1,7 +1,7 @@
 <template>
         <v-carousel
             cycle
-            height="690"
+            height="400"
             hide-delimiter-background
             show-arrows="hover"
             color="#2F5DA7"
@@ -13,6 +13,7 @@
                     src="../../assets/svg_for_carousel/logo_course.svg"
                     width="100%"
                     contain
+                    cover
                 >
                 </v-img>
             </v-carousel-item>
@@ -33,12 +34,21 @@
 
             <v-carousel-item
             >
-                <img  class="img_carousel" src="../../assets/svg_from_czn_site/route.svg" />
+                <v-img  
+                    src="../../assets/svg_from_czn_site/route.svg" 
+                    width="100%"
+                    contain
+                />
             </v-carousel-item>
 
             <v-carousel-item
             >  
-                <img  class="img_carousel" src="../../assets/svg_for_carousel/naseverezhit.svg" />
+                <v-img  
+                    src="../../assets/svg_for_carousel/naseverezhit.svg" 
+                    width="100%"
+                    contain
+                    cover
+                />
             </v-carousel-item>
 
         </v-carousel>
