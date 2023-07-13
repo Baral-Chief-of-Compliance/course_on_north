@@ -1,4 +1,5 @@
 <template>
+        <div @click="go_top" class="control-scroll">One</div>
         <carousel />
         <video-info />
         <about-project />
@@ -54,6 +55,12 @@ export default{
         ClientsInfo,
         VideoInfo,
         GoToAnketaParticipant
+    },
+
+    methods: {
+      go_top(){
+        window.scrollTo({ top: 0, behavior: 'smooth'})
+      }
     }
 }
 </script>
@@ -77,6 +84,27 @@ export default{
     font-size: 14px;
     line-height: 24px;
     color: black
+}
+
+.control-scroll {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #194996;
+  color: white;
+  position: fixed;
+  margin-top: 600px;
+  margin-left: 25px;
+  z-index: 1000;
+
+}
+
+.control-scroll:hover {
+  background: #2F5DA7;
+  transition: all 400ms;
+  cursor: pointer;
+  
 }
 
 @font-face { 

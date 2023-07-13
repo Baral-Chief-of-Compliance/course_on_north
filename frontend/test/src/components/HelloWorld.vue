@@ -83,6 +83,24 @@
             TEST1
           </v-btn>
         </v-col>
+
+        <v-col cols="auto">
+          <v-btn
+            min-width="164"
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="text"
+            @click="$router.push('/test-2')"
+          >
+            <v-icon
+              icon="mdi-test-tube"
+              size="large"
+              start
+            />
+
+            TEST2
+          </v-btn>
+        </v-col>
       </v-row>
     </v-responsive>
   </v-container>

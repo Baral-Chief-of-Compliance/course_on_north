@@ -65,7 +65,15 @@ export default{
     methods: {
         go_back(){
             this.$router.push({name: 'TestHome_1'})
+        },
+
+        get_start(){
+            window.scrollTo({ top: 0, behavior: 'smooth'})
         }
+    },
+
+    mounted(){
+        this.get_start()
     }
 }
 </script>

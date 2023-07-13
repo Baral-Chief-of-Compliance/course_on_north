@@ -55,7 +55,7 @@
                 <v-card width="700px">
                     <v-card-title>
                         Прикрепить вакансии
-                    </v-card-title>
+                    </v-card-title> 
 
                     <v-card-text>
                         <v-alert
@@ -66,7 +66,7 @@
                             <v-btn class="mt-2" color="#02723b"><v-icon color="white"  icon="mdi-file-excel-box"></v-icon><span class="ml-2">Скачать таблицу</span></v-btn>
                         </v-alert>
 
-                        <v-file-input class="mt-5" label="Прикрепить таблицу с вакансиями"></v-file-input>
+                        <v-file-input color="#2F5DA7" variant="solo-filled" class="mt-5" label="Прикрепить таблицу с вакансиями"></v-file-input>
 
                     </v-card-text>
                     <v-card-actions>
@@ -79,7 +79,7 @@
             <v-text-field class="mt-5" variant="solo-filled" color="#2F5DA7" label="ФИО контактного лица"></v-text-field>
             <v-text-field variant="solo-filled" color="#2F5DA7" label="Номер телефона"></v-text-field>
             <v-text-field variant="solo-filled" color="#2F5DA7" label="Электронная почта"></v-text-field>
-            <v-file-input label="Карточка предприятия"></v-file-input>
+            <v-file-input color="#2F5DA7" variant="solo-filled" label="Карточка предприятия"></v-file-input>
 
             <v-btn id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
 

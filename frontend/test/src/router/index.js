@@ -1,5 +1,11 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import DefaultTest from '@/layouts/test/DefaultTest.vue'
+import Test_1 from '@/views/Test_1.vue'
+import AnketaSoiskatelya from '@/components/test_1/AnketaSoiskatelya.vue'
+import AnketaEmployer from '@/components/test_1/AnketaEmployer.vue'
+import Map from '@/components/test_1/Map.vue'
+import News from '@/components/test_1/News.vue'
 
 
 const routes = [
@@ -20,34 +26,46 @@ const routes = [
 
   {
     path: '/test-1',
-    component: () => import('@/layouts/test/DefaultTest.vue'),
+    component: DefaultTest,
     children: [
       {
         path: '',
         name: 'TestHome_1',
-        component: () => import('@/views/Test_1.vue')
+        component: Test_1
       },
       {
         path: '/anketa-soiskatelya',
         name: 'AnketaSoiskatelya',
-        component: () => import('@/components/test_1/AnketaSoiskatelya.vue')
+        component: AnketaSoiskatelya
       },
       {
         path: '/anketa-employer',
         name: 'AnketaEmployer',
-        component: () => import('@/components/test_1/AnketaEmployer.vue')
+        component: AnketaEmployer
       },
       {
         path: '/map-czn',
         name: 'map-czn',
-        component: () => import('@/components/test_1/Map.vue')
+        component: Map
       },
 
       {
         path: '/news',
         name: 'News',
-        component: () => import('@/components/test_1/News.vue')
+        component: News
       }
+    ]
+  },
+
+  {
+    path: '/test-2',
+    component: () => import ('@/layouts/test-2/DefaultTest2.vue'),
+    children: [
+      {
+        path: '/test-2/index',
+        name: 'TestHome_2',
+        component: () => import('@/views/Test_1.vue')
+      },
     ]
   }
 ]
