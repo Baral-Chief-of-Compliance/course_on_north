@@ -7,15 +7,3 @@
         </v-img>
     </v-container>
 </template>
-
-<script>
-export default{
-    updated () {
-        console.log('ClientsInfo.vue is load updated')
-    },
-
-    mounted (){
-        console.log('ClientsInfo.vue is load mounted')
-    }
-}
-</script>

@@ -1,12 +1,20 @@
-<template>
-        <div @click="go_top" class="control-scroll">One</div>
-        <carousel />
-        <video-info />
-        <about-project />
-        <structure />
-        <clients-info />
-        <go-to-anketa-participant />
-
+<template >
+  <transition name="fade">
+    <div v-if="scrollValue > 50" @click="go_top" class="control-scroll">
+      <v-img class="img-arrow-up"
+            max-height="30"
+            max-width="30"
+            contain
+            src="../../assets/for_manipulation/arrow-ap.svg"
+        />
+    </div>
+  </transition>
+  <carousel />
+  <video-info />
+  <about-project />
+  <structure />
+  <clients-info />
+  <go-to-anketa-participant />
 </template>
 
 
@@ -18,6 +26,7 @@ import Structure from './Structure.vue';
 import ClientsInfo from './ClientsInfo.vue';
 import VideoInfo from './VideoInfo.vue';
 import GoToAnketaParticipant from './GoToAnketaParticipant.vue';
+import { registerPlugins } from '@/plugins';
 
 
 
@@ -44,7 +53,9 @@ export default{
             {url: "../../assets/images_for_carousel/recruting.jpg", alt: "recruting"},
             {url: "../../assets/images_for_carousel/client_route.jpg", alt: "client_route"},
             {url: "../../assets/images_for_carousel/naseverezhit.jpg", alt: "naseverezhit"}
-        ]
+        ],
+        x: 0,
+        scrollValue: 0,
       }
     },
 
@@ -61,11 +72,22 @@ export default{
       go_top(){
         window.scrollTo({ top: 0, behavior: 'smooth'})
       }
+    },
+
+    created(){
+      const onScroll = () => this.scrollValue = window.scrollY;
+      window.addEventListener('scroll', onScroll)
     }
 }
 </script>
 
 <style>
+
+.movearea{
+  transition: 0.2s background-color ease;
+}
+
+
 .img_carousel{
     width: 100%;
     height: 690px;
@@ -97,7 +119,6 @@ export default{
   margin-top: 600px;
   margin-left: 25px;
   z-index: 1000;
-
 }
 
 .control-scroll:hover {
@@ -105,6 +126,23 @@ export default{
   transition: all 400ms;
   cursor: pointer;
   
+}
+
+.fade-enter-active,
+.fade-leave-active{
+  transition: opacity 0.5s ease;;
+}
+
+.fade-enter-from,
+.fade-leave-to{
+  opacity: 0;
+}
+
+.img-arrow-up{
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
 @font-face { 
