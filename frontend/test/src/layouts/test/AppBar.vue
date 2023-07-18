@@ -5,6 +5,7 @@
             max-width="122"
             contain
             src="../../assets/logo/logo-for-header-on-gray.svg"
+            @click="go_to_main()"
         />
         <v-container>
             <v-row>
@@ -37,8 +38,12 @@
 </template>
 
 <script>
+import { set_part_of_navbar, get_name_part_of_navbar } from "@/localstorage/storage_of_location_site.js"
+
 
 export default{
+
+
     data () {
         return {
 
@@ -46,27 +51,58 @@ export default{
     },
 
     methods: {
+
+        go_to_main(){
+            this.$router.push({name: "TestHome_1"})
+        },
         go_to_about_project(){
-            window.scrollTo({ top: 1100, behavior: 'smooth'})
+            if (get_name_part_of_navbar() != "TestHome_1"){
+                this.$router.push({name: "TestHome_1"})
+                window.scrollTo({ top: 1100, behavior: 'smooth'})
+                set_part_of_navbar("TestHome_1")
+            }   else{
+                set_part_of_navbar("TestHome_1")
+                window.scrollTo({ top: 1100, behavior: 'smooth'})
+            }
+
         },
 
         go_to_struct(){
-            window.scrollTo({ top: 1900, behavior: 'smooth'})
+            if (get_name_part_of_navbar() != "TestHome_1"){
+                this.$router.push({name: "TestHome_1"})
+                window.scrollTo({ top: 1900, behavior: 'smooth'})
+                set_part_of_navbar("TestHome_1")
+            }   else{
+                set_part_of_navbar("TestHome_1")
+                window.scrollTo({ top: 1900, behavior: 'smooth'})
+            }
+
         },
 
         go_to_clients(){
-            window.scrollTo({ top: 2700, behavior: 'smooth'})
+            if (get_name_part_of_navbar() != "TestHome_1"){
+                this.$router.push({name: "TestHome_1"})
+                window.scrollTo({ top: 2700, behavior: 'smooth'})
+                set_part_of_navbar("TestHome_1")
+            }   else {
+                set_part_of_navbar("TestHome_1")
+                window.scrollTo({ top: 2700, behavior: 'smooth'})
+            }
+
         },
 
         go_to_anketa_soiskatelya(){
+            set_part_of_navbar("AnketaSoiskatelya")
             this.$router.push({name: "AnketaSoiskatelya"})
         },
 
         go_to_anketa_employer(){
+            set_part_of_navbar("AnketaEmployer")
             this.$router.push({name: "AnketaEmployer"})
         },
 
         go_to_news(){
+            set_part_of_navbar("News")
             this.$router.push({name: "News"})
         }
 

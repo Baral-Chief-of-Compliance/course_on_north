@@ -6,6 +6,8 @@ import AnketaSoiskatelya from '@/components/test_1/AnketaSoiskatelya.vue'
 import AnketaEmployer from '@/components/test_1/AnketaEmployer.vue'
 import Map from '@/components/test_1/Map.vue'
 import News from '@/components/test_1/News.vue'
+import DefaultAdmin from '@/layouts/admin/DefaultAdmin.vue'
+import AdminHome from '@/views/AdminHome.vue'
 
 
 const routes = [
@@ -66,6 +68,18 @@ const routes = [
         name: 'TestHome_2',
         component: () => import('@/views/Test_1.vue')
       },
+    ]
+  },
+
+  {
+    path: '/admin',
+    component: DefaultAdmin,
+    children: [
+      {
+        path: '/admin/',
+        name: 'AdminIndex',
+        component: AdminHome
+      }
     ]
   }
 ]

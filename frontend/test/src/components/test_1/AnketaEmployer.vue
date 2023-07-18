@@ -63,7 +63,14 @@
                             title="Пример оформления вакансий"
                         >
                             Для примера оформления вакансий необходимо скачать таблицу.
-                            <v-btn class="mt-2" color="#02723b"><v-icon color="white"  icon="mdi-file-excel-box"></v-icon><span class="ml-2">Скачать таблицу</span></v-btn>
+                            <a href="http://127.0.0.1:5000/send-table">
+                                <v-btn class="mt-2" color="#02723b"><v-icon color="white"  icon="mdi-file-excel-box">
+                                    </v-icon><span class="ml-2">
+                                        Скачать таблицу
+                                    </span>
+                                </v-btn>
+                            </a>
+                            
                         </v-alert>
 
                         <v-file-input color="#2F5DA7" variant="solo-filled" class="mt-5" label="Прикрепить таблицу с вакансиями"></v-file-input>
