@@ -8,6 +8,7 @@ import Map from '@/components/test_1/Map.vue'
 import News from '@/components/test_1/News.vue'
 import DefaultAdmin from '@/layouts/admin/DefaultAdmin.vue'
 import AdminHome from '@/views/AdminHome.vue'
+import ThanksAnketa from '@/components/test_1/ThanksAnketa.vue'
 
 
 const routes = [
@@ -55,6 +56,12 @@ const routes = [
         path: '/news',
         name: 'News',
         component: News
+      },
+
+      {
+        path: '/thanks-for-anketa',
+        name: 'ThanksAnketa',
+        component: ThanksAnketa
       }
     ]
   },

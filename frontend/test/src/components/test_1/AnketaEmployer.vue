@@ -88,7 +88,7 @@
             <v-text-field variant="solo-filled" color="#2F5DA7" label="Электронная почта"></v-text-field>
             <v-file-input color="#2F5DA7" variant="solo-filled" label="Карточка предприятия"></v-file-input>
 
-            <v-btn id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
+            <v-btn @click="send_anketa()" id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
 
 
         </v-container>
@@ -115,6 +115,10 @@ export default{
 
         get_start(){
             window.scrollTo({ top: 0, behavior: 'smooth'})
+        },
+
+        send_anketa(){
+            this.$router.push({name: 'ThanksAnketa'})
         }
     },
 

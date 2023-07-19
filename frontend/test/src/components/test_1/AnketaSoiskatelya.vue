@@ -116,7 +116,7 @@
             </v-alert>
 
 
-            <v-btn id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
+            <v-btn @click="send_anketa()" id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
 
         </v-container>
         
@@ -145,6 +145,10 @@ export default{
 
         check(){
             alert("тест")
+        },
+
+        send_anketa(){
+            this.$router.push({name: 'ThanksAnketa'})
         }
     },
 
