@@ -6,6 +6,7 @@
             contain
             src="../../assets/logo/logo-for-header-on-gray.svg"
             @click="go_to_main()"
+            class="logo"
         />
         <v-container>
             <v-row>
@@ -53,7 +54,13 @@ export default{
     methods: {
 
         go_to_main(){
-            this.$router.push({name: "TestHome_1"})
+            if (get_name_part_of_navbar() != "TestHome_1"){
+                this.$router.push({name: "TestHome_1"})
+                set_part_of_navbar("TestHome_1")
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth'})
+            }
+
         },
         go_to_about_project(){
             if (get_name_part_of_navbar() != "TestHome_1"){
@@ -128,6 +135,10 @@ export default{
     line-height: 76px;
     font-family: "CorkiRegular";
     color: #eb6635
+}
+
+.logo:hover{
+    cursor: pointer
 }
 
 
