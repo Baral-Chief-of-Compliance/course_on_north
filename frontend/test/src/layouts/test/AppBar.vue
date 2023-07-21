@@ -61,7 +61,6 @@
 <script>
 import { set_part_of_navbar, get_name_part_of_navbar } from "@/localstorage/storage_of_location_site.js"
 import { useWindowSize} from '@vueuse/core'
-import NavigationDrawers from '../../components/test_1/NavigationDrawers.vue'
 
 
 export default{
@@ -171,10 +170,6 @@ export default{
             this.$router.push({name: "News"})
         }
 
-    },
-
-    components: {
-        NavigationDrawers
     }
 }
 </script>

@@ -27,7 +27,7 @@
                 <template v-slot:default="{ isHovering, props }">
                     <v-card class="my-5" 
                         v-bind="props"
-                        :color="isHovering ? '#eb6635' : undefined"
+                        :color="isHovering ? '#2F5DA7' : undefined"
 
                     >
                         <v-card-text>
@@ -92,7 +92,7 @@ export default{
     font-size: 20px;
     margin-top: 5px;
     margin-bottom: 10px;
-    color: #2F5DA7
+    color: #194996
 }
 
 .news-desciption{
