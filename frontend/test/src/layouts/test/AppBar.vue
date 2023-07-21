@@ -1,6 +1,6 @@
 <template>
     <v-app-bar color="#eb6635" height="80">
-        <v-img 
+        <v-img v-if="width > 1340"
             max-height="100"
             max-width="122"
             contain
@@ -9,7 +9,10 @@
             class="logo"
         />
         <v-container>
-            <v-row>
+
+            <v-app-bar-nav-icon v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            
+            <v-row v-if="width > 1280">
                 <v-col>
                     <v-btn @click="go_to_about_project"><span class="nav-option">О ПРОЕКТЕ</span></v-btn>
                 </v-col>
@@ -36,10 +39,29 @@
             </v-row>
         </v-container>
     </v-app-bar>
+
+    <v-navigation-drawer
+        v-model="drawer"
+        location="top"
+        color="#eb6635"
+        temporary
+        v-if="width <= 1340"
+      >
+        <v-list>
+            <v-list-item @click="go_to_about_project"><span class="nav-option">О ПРОЕКТЕ</span></v-list-item>
+            <v-list-item @click="go_to_struct"><span class="nav-option">СТРУКТУРА</span></v-list-item>
+            <v-list-item @click="go_to_clients"><span class="nav-option">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-list-item>
+            <v-list-item @click="go_to_news"><span class="nav-option">НОВОСТИ</span></v-list-item>
+            <v-list-item @click="go_to_anketa_soiskatelya"><span class="nav-option">СОИСКАТЕЛЮ</span></v-list-item>
+            <v-list-item @click="go_to_anketa_employer"><span class="nav-option">РАБОТОДАТЕЛЮ</span></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
 </template>
 
 <script>
 import { set_part_of_navbar, get_name_part_of_navbar } from "@/localstorage/storage_of_location_site.js"
+import { useWindowSize} from '@vueuse/core'
+import NavigationDrawers from '../../components/test_1/NavigationDrawers.vue'
 
 
 export default{
@@ -47,8 +69,40 @@ export default{
 
     data () {
         return {
-
+            drawer: false,
+            items: [
+                {
+                    title: 'О ПРОЕКТЕ',
+                    value: 'PROJECT',
+                },
+                {
+                title: 'СТРУКТУРА',
+                value: 'STRUCT',
+                },
+                {
+                title: 'КЛИЕНТЫ И ПАРТНЕРЫ',
+                value: 'CLIENTS_AND_PARTNERS',
+                },
+                {
+                title: 'НОВОСТИ',
+                value: 'NEWS',
+                },
+                {
+                    title: 'СОИСКАТЕЛЮ',
+                    value: 'CLIENTS',
+                },
+                {
+                    title: 'РАБОТОДАТЕЛЮ',
+                    value: 'EMPLOYER'
+                }
+            ]
         }
+    },
+
+    setup(){
+        const { width, height } = useWindowSize()
+
+        return { width, height}
     },
 
     methods: {
@@ -58,6 +112,7 @@ export default{
                 this.$router.push({name: "TestHome_1"})
                 set_part_of_navbar("TestHome_1")
             } else {
+                this.drawer=false
                 window.scrollTo({ top: 0, behavior: 'smooth'})
             }
 
@@ -68,6 +123,7 @@ export default{
                 window.scrollTo({ top: 1100, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
             }   else{
+                this.drawer=false
                 set_part_of_navbar("TestHome_1")
                 window.scrollTo({ top: 1100, behavior: 'smooth'})
             }
@@ -80,6 +136,7 @@ export default{
                 window.scrollTo({ top: 1900, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
             }   else{
+                this.drawer=false
                 set_part_of_navbar("TestHome_1")
                 window.scrollTo({ top: 1900, behavior: 'smooth'})
             }
@@ -92,6 +149,7 @@ export default{
                 window.scrollTo({ top: 2700, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
             }   else {
+                this.drawer=false
                 set_part_of_navbar("TestHome_1")
                 window.scrollTo({ top: 2700, behavior: 'smooth'})
             }
@@ -115,8 +173,8 @@ export default{
 
     },
 
-    mounted(){
-
+    components: {
+        NavigationDrawers
     }
 }
 </script>

@@ -45,6 +45,12 @@ export default{
         go_on_map(){
             this.$router.push({name: 'map-czn'})
         }
+    },
+
+    data(){
+        return {
+            
+        }
     }
 }
 </script>

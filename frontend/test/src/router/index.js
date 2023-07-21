@@ -12,27 +12,13 @@ import ThanksAnketa from '@/components/test_1/ThanksAnketa.vue'
 
 
 const routes = [
-  {
-    path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
-    children: [
-      {
-        path: '',
-        name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
-      }
-    ]
-  },
 
   {
-    path: '/test-1',
+    path: '/',
     component: DefaultTest,
     children: [
       {
-        path: '',
+        path: '/',
         name: 'TestHome_1',
         component: Test_1
       },
@@ -62,30 +48,6 @@ const routes = [
         path: '/thanks-for-anketa',
         name: 'ThanksAnketa',
         component: ThanksAnketa
-      }
-    ]
-  },
-
-  {
-    path: '/test-2',
-    component: () => import ('@/layouts/test-2/DefaultTest2.vue'),
-    children: [
-      {
-        path: '/test-2/index',
-        name: 'TestHome_2',
-        component: () => import('@/views/Test_1.vue')
-      },
-    ]
-  },
-
-  {
-    path: '/admin',
-    component: DefaultAdmin,
-    children: [
-      {
-        path: '/admin/',
-        name: 'AdminIndex',
-        component: AdminHome
       }
     ]
   }
