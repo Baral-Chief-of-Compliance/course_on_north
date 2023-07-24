@@ -1,6 +1,6 @@
 <template>
     <v-app-bar color="#eb6635" height="80">
-        <v-img v-if="width > 1340"
+        <v-img
             max-height="100"
             max-width="115"
             contain
@@ -8,7 +8,11 @@
             @click="go_to_main()"
             class="logo"
         />
-        <v-app-bar-nav-icon v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+        <v-app-bar-title class="title-site" v-if="width <= 1340">КУРС НА СЕВЕР!</v-app-bar-title>
+        <template v-slot:append>
+            <v-app-bar-nav-icon class="mr-5" v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        </template>
 
         <div class="nav-options" v-if="width > 1280">
             <v-row no-gutters justify="center" v-if="width > 1280">
@@ -285,6 +289,10 @@ export default{
     margin-right: auto;
 }
 
+.title-site{
+    font-family: "CorkiRegular";
+    color: white;
+}
 
 
 /* @font-face { 
