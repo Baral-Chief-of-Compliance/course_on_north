@@ -50,6 +50,18 @@ const routes = [
         component: ThanksAnketa
       }
     ]
+  },
+
+  {
+    path: '/admin',
+    component: DefaultAdmin,
+    children: [
+      {
+        path: '/admin/',
+        name: 'AdminIndex',
+        component: AdminHome
+      }
+    ]
   }
 ]
 
