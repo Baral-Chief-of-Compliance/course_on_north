@@ -116,8 +116,8 @@ export default{
   background: #194996;
   color: white;
   position: fixed;
-  margin-top: 600px;
-  margin-left: 25px;
+  margin-top: 78vh;
+  margin-left: 2vw;
   z-index: 1000;
 }
 

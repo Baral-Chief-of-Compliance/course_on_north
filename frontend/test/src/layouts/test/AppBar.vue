@@ -2,42 +2,41 @@
     <v-app-bar color="#eb6635" height="80">
         <v-img v-if="width > 1340"
             max-height="100"
-            max-width="122"
+            max-width="115"
             contain
             src="../../assets/logo/logo-for-header-on-gray.svg"
             @click="go_to_main()"
             class="logo"
         />
-        <v-container>
+        <v-app-bar-nav-icon v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-app-bar-nav-icon v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            
-            <v-row v-if="width > 1280">
+        <div class="nav-options" v-if="width > 1280">
+            <v-row no-gutters justify="center" v-if="width > 1280">
                 <v-col>
-                    <v-btn @click="go_to_about_project"><span class="nav-option">О ПРОЕКТЕ</span></v-btn>
+                    <v-btn @click="go_to_about_project"><span class="nav-option" :style="{color: projectColor}">О ПРОЕКТЕ</span></v-btn>
+                </v-col >
+
+                <v-col>
+                    <v-btn @click="go_to_struct"><span class="nav-option" :style="{color: structColor}">СТРУКТУРА</span></v-btn>
                 </v-col>
 
                 <v-col>
-                    <v-btn @click="go_to_struct"><span class="nav-option">СТРУКТУРА</span></v-btn>
+                    <v-btn @click="go_to_clients"><span class="nav-option" :style="{color: clientsPartnersColor}">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-btn>
                 </v-col>
 
                 <v-col>
-                    <v-btn @click="go_to_clients"><span class="nav-option">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-btn>
+                    <v-btn @click="go_to_news"><span class="nav-option" :style="{color: newsColor}">НОВОСТИ</span></v-btn>
                 </v-col>
 
                 <v-col>
-                    <v-btn @click="go_to_news"><span class="nav-option">НОВОСТИ</span></v-btn>
+                    <v-btn @click="go_to_anketa_soiskatelya"><span class="nav-option" :style="{color: clientsColor}">СОИСКАТЕЛЮ</span></v-btn>
                 </v-col>
 
                 <v-col>
-                    <v-btn @click="go_to_anketa_soiskatelya"><span class="nav-option">СОИСКАТЕЛЮ</span></v-btn>
-                </v-col>
-
-                <v-col>
-                     <v-btn @click="go_to_anketa_employer"><span class="nav-option">РАБОТОДАТЕЛЮ</span></v-btn>
+                     <v-btn @click="go_to_anketa_employer"><span class="nav-option" :style="{color: employerColor}">РАБОТОДАТЕЛЮ</span></v-btn>
                 </v-col>
             </v-row>
-        </v-container>
+        </div>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -48,12 +47,12 @@
         v-if="width <= 1340"
       >
         <v-list>
-            <v-list-item @click="go_to_about_project"><span class="nav-option">О ПРОЕКТЕ</span></v-list-item>
-            <v-list-item @click="go_to_struct"><span class="nav-option">СТРУКТУРА</span></v-list-item>
-            <v-list-item @click="go_to_clients"><span class="nav-option">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-list-item>
-            <v-list-item @click="go_to_news"><span class="nav-option">НОВОСТИ</span></v-list-item>
-            <v-list-item @click="go_to_anketa_soiskatelya"><span class="nav-option">СОИСКАТЕЛЮ</span></v-list-item>
-            <v-list-item @click="go_to_anketa_employer"><span class="nav-option">РАБОТОДАТЕЛЮ</span></v-list-item>
+            <v-list-item @click="go_to_about_project"><span class="nav-option" :style="{color: projectColor}">О ПРОЕКТЕ</span></v-list-item>
+            <v-list-item @click="go_to_struct"><span class="nav-option" :style="{color: structColor}">СТРУКТУРА</span></v-list-item>
+            <v-list-item @click="go_to_clients"><span class="nav-option" :style="{color: clientsPartnersColor}">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-list-item>
+            <v-list-item @click="go_to_news"><span class="nav-option" :style="{color: newsColor}">НОВОСТИ</span></v-list-item>
+            <v-list-item @click="go_to_anketa_soiskatelya"><span class="nav-option" :style="{color: clientsColor}">СОИСКАТЕЛЮ</span></v-list-item>
+            <v-list-item @click="go_to_anketa_employer"><span class="nav-option" :style="{color: employerColor}">РАБОТОДАТЕЛЮ</span></v-list-item>
         </v-list>
       </v-navigation-drawer>
 </template>
@@ -69,22 +68,29 @@ export default{
     data () {
         return {
             drawer: false,
+            projectColor: 'white',
+            structColor: 'white',
+            clientsPartnersColor: 'white',
+            newsColor: 'white',
+            clientsColor: 'white',
+            employerColor: 'white',
+
             items: [
                 {
                     title: 'О ПРОЕКТЕ',
                     value: 'PROJECT',
                 },
                 {
-                title: 'СТРУКТУРА',
-                value: 'STRUCT',
+                    title: 'СТРУКТУРА',
+                    value: 'STRUCT',
                 },
                 {
-                title: 'КЛИЕНТЫ И ПАРТНЕРЫ',
-                value: 'CLIENTS_AND_PARTNERS',
+                    title: 'КЛИЕНТЫ И ПАРТНЕРЫ',
+                    value: 'CLIENTS_AND_PARTNERS',
                 },
                 {
-                title: 'НОВОСТИ',
-                value: 'NEWS',
+                    title: 'НОВОСТИ',
+                    value: 'NEWS',
                 },
                 {
                     title: 'СОИСКАТЕЛЮ',
@@ -110,21 +116,50 @@ export default{
             if (get_name_part_of_navbar() != "TestHome_1"){
                 this.$router.push({name: "TestHome_1"})
                 set_part_of_navbar("TestHome_1")
+
+                this.projectColor = 'white'
+                this.structColor = 'white'
+                this.clientsPartnersColor = 'white'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
             } else {
                 this.drawer=false
                 window.scrollTo({ top: 0, behavior: 'smooth'})
+
+                this.projectColor = 'white'
+                this.structColor = 'white'
+                this.clientsPartnersColor = 'white'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
             }
 
         },
         go_to_about_project(){
             if (get_name_part_of_navbar() != "TestHome_1"){
                 this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 1100, behavior: 'smooth'})
+                window.scrollTo({ top: 1400, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
+
+                this.projectColor = '#FFDDC3'
+                this.structColor = 'white'
+                this.clientsPartnersColor = 'white'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
+
             }   else{
                 this.drawer=false
                 set_part_of_navbar("TestHome_1")
-                window.scrollTo({ top: 1100, behavior: 'smooth'})
+                window.scrollTo({ top: 1400, behavior: 'smooth'})
+
+                this.projectColor = '#FFDDC3'
+                this.structColor = 'white'
+                this.clientsPartnersColor = 'white'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
             }
 
         },
@@ -132,12 +167,27 @@ export default{
         go_to_struct(){
             if (get_name_part_of_navbar() != "TestHome_1"){
                 this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 1900, behavior: 'smooth'})
+                window.scrollTo({ top: 2200, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
+
+                this.projectColor = 'white'
+                this.structColor = '#FFDDC3'
+                this.clientsPartnersColor = 'white'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
+
             }   else{
                 this.drawer=false
                 set_part_of_navbar("TestHome_1")
-                window.scrollTo({ top: 1900, behavior: 'smooth'})
+                window.scrollTo({ top: 2200, behavior: 'smooth'})
+
+                this.projectColor = 'white'
+                this.structColor = '#FFDDC3'
+                this.clientsPartnersColor = 'white'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
             }
 
         },
@@ -145,12 +195,28 @@ export default{
         go_to_clients(){
             if (get_name_part_of_navbar() != "TestHome_1"){
                 this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 2700, behavior: 'smooth'})
+                window.scrollTo({ top: 3000, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
+
+                this.projectColor = 'white'
+                this.structColor = 'white'
+                this.clientsPartnersColor = '#FFDDC3'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
+
             }   else {
                 this.drawer=false
                 set_part_of_navbar("TestHome_1")
-                window.scrollTo({ top: 2700, behavior: 'smooth'})
+                window.scrollTo({ top: 3000, behavior: 'smooth'})
+
+                this.projectColor = 'white'
+                this.structColor = 'white'
+                this.clientsPartnersColor = '#FFDDC3'
+                this.newsColor = 'white'
+                this.clientsColor = 'white'
+                this.employerColor = 'white'
+
             }
 
         },
@@ -158,16 +224,37 @@ export default{
         go_to_anketa_soiskatelya(){
             set_part_of_navbar("AnketaSoiskatelya")
             this.$router.push({name: "AnketaSoiskatelya"})
+
+            this.projectColor = 'white'
+            this.structColor = 'white'
+            this.clientsPartnersColor = 'white'
+            this.newsColor = 'white'
+            this.clientsColor = '#FFDDC3'
+            this.employerColor = 'white'
         },
 
         go_to_anketa_employer(){
             set_part_of_navbar("AnketaEmployer")
             this.$router.push({name: "AnketaEmployer"})
+
+            this.projectColor = 'white'
+            this.structColor = 'white'
+            this.clientsPartnersColor = 'white'
+            this.newsColor = 'white'
+            this.clientsColor = 'white'
+            this.employerColor = '#FFDDC3'
         },
 
         go_to_news(){
             set_part_of_navbar("News")
             this.$router.push({name: "News"})
+
+            this.projectColor = 'white'
+            this.structColor = 'white'
+            this.clientsPartnersColor = 'white'
+            this.newsColor = '#FFDDC3'
+            this.clientsColor = 'white'
+            this.employerColor = 'white'
         }
 
     }
@@ -177,7 +264,6 @@ export default{
 <style>
 .nav-option{
     font-family: "MontserratMedium";
-    color: white;
     font-size: 16px;
 }
 
@@ -193,6 +279,12 @@ export default{
 .logo:hover{
     cursor: pointer
 }
+
+.nav-options{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 /* @font-face { 

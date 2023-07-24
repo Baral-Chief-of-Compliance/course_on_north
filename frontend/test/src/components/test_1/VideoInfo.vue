@@ -2,7 +2,14 @@
     <v-container class="mt-10">
         <div  class="title-for-page-corki">НА СЕВЕРЕ ЖИТЬ</div>
 
-        <div v-if="width > 1200" class="video-on-page" :style="{ width: 1000 + 'px', height: 500 + 'px'}">
+        <div v-if="width > 1700" class="video-on-page" :style="{ width: 1400 + 'px', height: 800 + 'px'}">
+            <video  controls autoplay muted>
+                <source src="../../assets/videos/video-choose-yours-kolsky-3.mp4">
+            </video>
+        
+        </div>
+
+        <div v-if="width > 1200 && width <= 1700" class="video-on-page" :style="{ width: 1000 + 'px', height: 500 + 'px'}">
             <video  controls autoplay muted>
                 <source src="../../assets/videos/video-choose-yours-kolsky-3.mp4">
             </video>
