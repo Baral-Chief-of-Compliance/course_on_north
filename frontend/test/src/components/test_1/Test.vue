@@ -9,12 +9,12 @@
         />
     </div>
   </transition>
-  <carousel />
-  <video-info />
-  <about-project />
+  <carousel :width="width"/>
+  <video-info :width="width" />
+  <!-- <about-project />
   <structure />
-  <clients-info />
-  <go-to-anketa-participant />
+  <clients-info /> -->
+  <go-to-anketa-participant :width="width" />
 </template>
 
 
@@ -27,6 +27,7 @@ import ClientsInfo from './ClientsInfo.vue';
 import VideoInfo from './VideoInfo.vue';
 import GoToAnketaParticipant from './GoToAnketaParticipant.vue';
 import { registerPlugins } from '@/plugins';
+import { useWindowSize} from '@vueuse/core'
 
 
 
@@ -77,6 +78,12 @@ export default{
     created(){
       const onScroll = () => this.scrollValue = window.scrollY;
       window.addEventListener('scroll', onScroll)
+    },
+
+    setup(){
+      const { width, height} = useWindowSize()
+
+      return { width, height }
     }
 }
 </script>

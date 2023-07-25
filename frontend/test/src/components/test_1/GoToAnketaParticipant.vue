@@ -5,14 +5,13 @@
         <!-- <v-btn @click="go_to_anketa_anketa_soiskatelya" class="my-3" color="#73C3F0" block><span class="text-under-button-send-soiskatelya">я соискатель</span></v-btn>
         <v-btn @click="go_to_anketa_anketa_employer" class="mt-3" color="#eb6635" block><span class="text-under-button-send-employer">я работодатель</span></v-btn> -->
 
-
-        <v-row justify="center" class="mt-5">
-            <v-col cols="5">
+        <v-row justify="center" class="mt-5" v-if="width > 860">
+            <v-col cols="5" class="mr-5">
                 <div>
                     <v-hover v-slot="{ isHovering, props }">
                     <v-card
                         class="mx-auto"
-                        max-width="344"
+                        
                         v-bind="props"
                     >
                         <v-img src="../../assets/for_ankets/soiskatel.png"></v-img>
@@ -30,19 +29,19 @@
                         scrim="#73C3F0"
                         class="align-center justify-center"
                         >
-                        <v-btn variant="flat" color="#73C3F0"><span class="text-under-button-send-soiskatelya">Заполнить анкету соискателя</span></v-btn>
+                        <v-btn @click="go_to_anketa_anketa_soiskatelya" variant="flat" color="#73C3F0"><span class="text-under-button-send-soiskatelya">Заполнить анкету соискателя</span></v-btn>
                         </v-overlay>
                     </v-card>
                     </v-hover>
                 </div>
             </v-col>
 
-            <v-col cols="5">
+            <v-col cols="5" class="ml-5">
                 <div>
                     <v-hover v-slot="{ isHovering, props }">
                     <v-card
                         class="mx-auto"
-                        max-width="344"
+                        
                         v-bind="props"
                     >
                         <v-img src="../../assets/for_ankets/employer.png"></v-img>
@@ -68,6 +67,9 @@
             </v-col>
 
         </v-row>
+
+        <v-btn v-if="width <= 860" @click="go_to_anketa_anketa_soiskatelya" class="my-3" color="#73C3F0" block><span class="text-under-button-send-soiskatelya">я соискатель</span></v-btn>
+        <v-btn v-if="width <= 860" @click="go_to_anketa_anketa_employer" class="mt-3" color="#EAA379" block><span class="text-under-button-send-employer">я работодатель</span></v-btn>
 
     </v-container>
 </template>
@@ -98,6 +100,10 @@
 <script>
 
 export default{
+
+    props:{
+        width: Number
+    },
 
     data(){
         return{

@@ -1,7 +1,7 @@
 <template>
-        <v-carousel
+        <v-carousel ref="carousel"
             cycle
-            height="680"
+            :height="maxHeightCarousel"
             hide-delimiter-background
             show-arrows="hover"
             color="#2F5DA7"
@@ -53,3 +53,26 @@
 
         </v-carousel>
 </template>
+
+
+<script>
+
+export default{
+
+    props:{
+        width: Number
+    },
+    data(){
+        return{
+            similarityFactor: 0.443
+        }
+    },
+
+    computed: {
+        maxHeightCarousel(){
+            return this.width * this.similarityFactor
+        }
+    }
+
+}
+</script>

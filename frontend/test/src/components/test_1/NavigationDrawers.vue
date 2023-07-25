@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar-nav-icon color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+   
 </template>
 
 <script>

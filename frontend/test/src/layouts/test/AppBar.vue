@@ -1,17 +1,17 @@
 <template>
     <v-app-bar color="#eb6635" height="80">
-        <v-img
+        <!-- <v-img
             max-height="100"
             max-width="115"
             contain
             src="../../assets/logo/logo-for-header-on-gray.svg"
             @click="go_to_main()"
             class="logo"
-        />
+        /> -->
 
-        <v-app-bar-title class="title-site" v-if="width <= 1340">КУРС НА СЕВЕР!</v-app-bar-title>
+        <div class="title-site ml-10">КУРС НА СЕВЕР!</div>
         <template v-slot:append>
-            <v-app-bar-nav-icon class="mr-5" v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon class="mr-10" v-if="width <= 1280" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
 
         <div class="nav-options mr-11" v-if="width > 1280">
@@ -293,6 +293,7 @@ export default{
 .title-site{
     font-family: "CorkiRegular";
     color: white;
+    font-size: 30px;
 }
 
 

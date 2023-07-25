@@ -2,48 +2,38 @@
     <v-container class="mt-10">
         <div  class="title-for-page-corki">НА СЕВЕРЕ ЖИТЬ</div>
 
-        <div v-if="width > 1700" class="video-on-page" :style="{ width: 1400 + 'px', height: 800 + 'px'}">
+        <div class="video-on-page" :style="{ width: maxWidthVideo + 'px', height: maxHeightVideo + 'px'}">
             <video  controls autoplay muted>
                 <source src="../../assets/videos/video-choose-yours-kolsky-3.mp4">
             </video>
-        
-        </div>
-
-        <div v-if="width > 1200 && width <= 1700" class="video-on-page" :style="{ width: 1000 + 'px', height: 500 + 'px'}">
-            <video  controls autoplay muted>
-                <source src="../../assets/videos/video-choose-yours-kolsky-3.mp4">
-            </video>
-        
-        </div>
-
-        <div v-if="width > 700 && width <= 1200" class="video-on-page" :style="{ width: 600 + 'px', height: 400 + 'px'}">
-            <video  controls autoplay muted>
-                <source src="../../assets/videos/video-choose-yours-kolsky-3.mp4">
-            </video>
-        
-        </div>
-
-
-        <div v-if="width <= 700" class="video-on-page" :style="{ width: 300 + 'px', height: 250 + 'px'}">
-            <video  controls autoplay muted>
-                <source src="../../assets/videos/video-choose-yours-kolsky-3.mp4">
-            </video>
-        
         </div>
         
     </v-container>
 </template>
 
 <script>
-import { useWindowSize } from '@vueuse/core'
 
 
     export default{
+        props:{
+            width: Number
+        },
 
-        setup(){
-            const { width, height} = useWindowSize()
+        data(){
+            return{
+                similarityFactorWidth: 0.67,
+                similarityFactorHeight: 0.42
+            }
+        },
 
-            return { width, height}
+        computed: {
+            maxWidthVideo(){
+                return this.width * this.similarityFactorWidth
+            },
+
+            maxHeightVideo(){
+                return this.width * this.similarityFactorHeight
+            }
         }
     }
 </script>
