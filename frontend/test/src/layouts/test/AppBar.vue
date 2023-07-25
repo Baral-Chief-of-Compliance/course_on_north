@@ -14,7 +14,7 @@
             <v-app-bar-nav-icon class="mr-5" v-if="width <= 1340" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
 
-        <div class="nav-options" v-if="width > 1280">
+        <div class="nav-options mr-11" v-if="width > 1280">
             <v-row no-gutters justify="center" v-if="width > 1280">
                 <v-col>
                     <v-btn @click="go_to_about_project"><span class="nav-option" :style="{color: projectColor}">О ПРОЕКТЕ</span></v-btn>
@@ -24,13 +24,13 @@
                     <v-btn @click="go_to_struct"><span class="nav-option" :style="{color: structColor}">СТРУКТУРА</span></v-btn>
                 </v-col>
 
-                <v-col>
+                <!-- <v-col>
                     <v-btn @click="go_to_clients"><span class="nav-option" :style="{color: clientsPartnersColor}">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-btn>
-                </v-col>
+                </v-col> -->
 
-                <v-col>
+                <!-- <v-col>
                     <v-btn @click="go_to_news"><span class="nav-option" :style="{color: newsColor}">НОВОСТИ</span></v-btn>
-                </v-col>
+                </v-col> -->
 
                 <v-col>
                     <v-btn @click="go_to_anketa_soiskatelya"><span class="nav-option" :style="{color: clientsColor}">СОИСКАТЕЛЮ</span></v-btn>
@@ -53,8 +53,8 @@
         <v-list>
             <v-list-item @click="go_to_about_project"><span class="nav-option" :style="{color: projectColor}">О ПРОЕКТЕ</span></v-list-item>
             <v-list-item @click="go_to_struct"><span class="nav-option" :style="{color: structColor}">СТРУКТУРА</span></v-list-item>
-            <v-list-item @click="go_to_clients"><span class="nav-option" :style="{color: clientsPartnersColor}">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-list-item>
-            <v-list-item @click="go_to_news"><span class="nav-option" :style="{color: newsColor}">НОВОСТИ</span></v-list-item>
+            <!-- <v-list-item @click="go_to_clients"><span class="nav-option" :style="{color: clientsPartnersColor}">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-list-item> -->
+            <!-- <v-list-item @click="go_to_news"><span class="nav-option" :style="{color: newsColor}">НОВОСТИ</span></v-list-item> -->
             <v-list-item @click="go_to_anketa_soiskatelya"><span class="nav-option" :style="{color: clientsColor}">СОИСКАТЕЛЮ</span></v-list-item>
             <v-list-item @click="go_to_anketa_employer"><span class="nav-option" :style="{color: employerColor}">РАБОТОДАТЕЛЮ</span></v-list-item>
         </v-list>
@@ -268,7 +268,7 @@ export default{
 <style>
 .nav-option{
     font-family: "MontserratMedium";
-    font-size: 16px;
+    font-size: 25px;
 }
 
 
@@ -287,6 +287,7 @@ export default{
 .nav-options{
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .title-site{

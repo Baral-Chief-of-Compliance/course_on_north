@@ -4,12 +4,14 @@
       color="#2F5DA7"
     >
         <v-container class="my-15">
+
+
             <v-row v-if="width > 1279">
                 <v-col cols=4>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="220"
-                        max-width="220"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="200"
+                        max-width="200"
                         contain
                         class="mb-15"
                     ></v-img>    
@@ -39,9 +41,9 @@
             <v-row v-if="width > 798 && width <= 1279">
                 <v-col cols=4>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="220"
-                        max-width="220"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="200"
+                        max-width="200"
                         contain
                         class="mb-15"
                     ></v-img>    
@@ -71,9 +73,9 @@
             <v-row v-if="width > 746 && width <= 798">
                 <v-col cols=4>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="220"
-                        max-width="220"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="200"
+                        max-width="200"
                         contain
                         class="mb-15"
                     ></v-img>    
@@ -102,9 +104,9 @@
             <v-row v-if="width > 666 && width <= 746">
                 <v-col cols=4>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="220"
-                        max-width="220"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="200"
+                        max-width="200"
                         contain
                         class="mb-15"
                     ></v-img>    
@@ -134,9 +136,9 @@
             <v-row v-if="width > 612 && width <= 666">
                 <v-col cols=4>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="180"
-                        max-width="180"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="160"
+                        max-width="160"
                         contain
                         class="mb-15"
                     ></v-img>    
@@ -166,9 +168,9 @@
             <v-row v-if="width > 558 && width <= 612">
                 <v-col cols=4>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="180"
-                        max-width="180"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="160"
+                        max-width="160"
                         contain
                         class="mb-15"
                     ></v-img>    
@@ -200,9 +202,9 @@
             <v-col class="mx-15" v-if="width > 500 && width <= 558">
                 <v-container class="mx-15">
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="200"
-                        max-width="200"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="180"
+                        max-width="180"
                         contain
                     ></v-img>  
                     <div class="rights mb-15">© 2023 «Курс на Север»</div>
@@ -230,9 +232,9 @@
             <v-col class="mx-10" v-if="width > 450 && width <= 500">
                 <v-container class="mx-10">
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="200"
-                        max-width="200"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="180"
+                        max-width="180"
                         contain
                     ></v-img>  
                     <div class="rights mb-15">© 2023 «Курс на Север»</div>
@@ -260,9 +262,9 @@
             <v-col class="ml-10" v-if="width > 410 && width <= 450">
                 <v-container>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="200"
-                        max-width="200"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="180"
+                        max-width="180"
                         contain
                     ></v-img>  
                     <div class="rights mb-15">© 2023 «Курс на Север»</div>
@@ -290,9 +292,9 @@
             <v-col v-if="width <= 410">
                 <v-container>
                     <v-img
-                        src="../../assets/logo/white_logo.svg"
-                        max-height="200"
-                        max-width="200"
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="180"
+                        max-width="180"
                         contain
                     ></v-img>  
                     <div class="rights mb-15">© 2023 «Курс на Север»</div>
@@ -325,6 +327,10 @@
 
 <script>
 import { useWindowSize} from '@vueuse/core'
+import { useDisplay } from 'vuetify'
+import { onMounted } from 'vue'
+import { ref } from 'vue'
+import { reactive } from 'vue'
 
 
 export default{
@@ -344,6 +350,10 @@ export default{
         const { width, height } = useWindowSize()
 
         return { width, height}
+
+        // const { width, mobile, mobileBreakpoint } = useDisplay()
+
+        // return { width, mobile, mobileBreakpoint }
     }
 }
 </script>
