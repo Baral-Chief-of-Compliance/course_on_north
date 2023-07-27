@@ -1,7 +1,7 @@
 <template>
     <v-container class="mb-5">
-        <div class="title-for-page-corki">АНКЕТА УЧАСТНИКА</div>
-        <span class="text-under-button">Чтобы принять участие в проекте необходимо заполнить анкету.</span>
+        <div :class="[ width > 1000 ? 'title-for-page-corki' : 'title_for_page_corki_mobile' ]">АНКЕТА УЧАСТНИКА</div>
+        <div :class="[ width > 1000 ? 'text-under-button' : 'text-under-button-mobile']">Чтобы принять участие в проекте необходимо заполнить анкету.</div>
         <!-- <v-btn @click="go_to_anketa_anketa_soiskatelya" class="my-3" color="#73C3F0" block><span class="text-under-button-send-soiskatelya">я соискатель</span></v-btn>
         <v-btn @click="go_to_anketa_anketa_employer" class="mt-3" color="#eb6635" block><span class="text-under-button-send-employer">я работодатель</span></v-btn> -->
 
@@ -11,7 +11,7 @@
                     <v-hover v-slot="{ isHovering, props }">
                     <v-card
                         class="mx-auto"
-                        
+                        @click="go_to_anketa_anketa_soiskatelya"
                         v-bind="props"
                     >
                         <v-img src="../../assets/for_ankets/soiskatel.png"></v-img>
@@ -41,10 +41,10 @@
                     <v-hover v-slot="{ isHovering, props }">
                     <v-card
                         class="mx-auto"
-                        
+                        @click="go_to_anketa_anketa_employer"
                         v-bind="props"
                     >
-                        <v-img src="../../assets/for_ankets/employer.png"></v-img>
+                        <v-img src="../../assets/for_ankets/new_employer.jpg"></v-img>
 
                         <v-card-text>
                         <div class="mb-10" :style="{fontSize: 50 + 'px', fontWeight: 'bold', color: '#eb6635', fontFamily: 'CorkiRegular'}">
@@ -92,6 +92,12 @@
 .text-under-button{
     font-family: "MontserratMedium";
     font-size: 20px;
+    color: black;
+}
+
+.text-under-button-mobile{
+    font-family: "MontserratMedium";
+    font-size: 15px;
     color: black;
 }
 

@@ -105,7 +105,15 @@ export default{
     font-weight: 400;
     line-height: 76px;
     font-family: "CorkiRegular";
-    color: #eb6635
+    color: #eb6635;
+}
+
+.title_for_page_corki_mobile{
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 76px;
+  font-family: "CorkiRegular";
+  color: #eb6635;
 }
 
 .test-Montserrat{

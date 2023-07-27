@@ -1,6 +1,6 @@
 <template>
     <v-container class="mt-10">
-        <div  class="title-for-page-corki">НА СЕВЕРЕ ЖИТЬ</div>
+        <div  :class="[ width > 1000 ? 'title-for-page-corki' : 'title_for_page_corki_mobile' ]">НА СЕВЕРЕ ЖИТЬ!</div>
 
         <div class="video-on-page" :style="{ width: maxWidthVideo + 'px', height: maxHeightVideo + 'px'}">
             <video  controls autoplay muted>

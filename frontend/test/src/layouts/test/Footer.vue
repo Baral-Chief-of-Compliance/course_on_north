@@ -19,8 +19,10 @@
                 </v-col>
                 <v-col cols=4>
                     <v-row><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="vk">@KursNaSever</a></v-row>
                     <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></v-row>
-                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></v-row>
+                    <v-row><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></v-row>
+                    
 
                     <v-row class="address text-left mt-15 mr-15">Мурманская область.<br> ГОБУ Центр занятости населения <br>г.Мурманска.<br> Улица Книповича 48</v-row>
 
@@ -32,8 +34,11 @@
                 <v-col cols=4>
                     <v-row><div id="docs">ДОКУМЕНТЫ:</div></v-row>
 
-                    <v-row class="mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении обработки</div></v-row>
-                    <row><div id="personal-data-sec-part" class="text-left mt-3 ml-6">персональных данных</div></row>
+                    <div class="personal-data">
+                        <v-row class="mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><a href="/public/курснасевер.pdf" target="_blank"><div id="personal-data-fir-part">Политика в отношении обработки</div></a></v-row>
+                        <v-row class="ml-7"><a href="/public/курснасевер.pdf" target="_blank"><div id="personal-data-sec-part" class="text-left mt-3 ">персональных данных</div></a></v-row>
+                    </div>
+
                 </v-col>
             </v-row>
 
@@ -51,8 +56,9 @@
                 </v-col>
                 <v-col cols=4>
                     <v-row><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="vk">@KursNaSever</a></v-row>
                     <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></v-row>
-                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></v-row>
+                    <v-row><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></v-row>
 
                     <v-row class="address text-left mt-15 mr-15" :style="{fontSize: 10 +'px'}">Мурманская область.<br> ГОБУ Центр занятости населения <br>г.Мурманска.<br> Улица Книповича 48</v-row>
 
@@ -83,8 +89,9 @@
                 </v-col>
                 <v-col cols=4>
                     <v-row><v-icon color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number" :style="{fontSize: 17 + 'px'}">8 (8152) 56-67-07</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="vk" :style="{fontSize: 17 + 'px'}">@KursNaSever</a></v-row>
                     <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" :style="{fontSize: 17 + 'px'}" >@czn_murman</a></v-row>
-                    <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk" :style="{fontSize: 17 + 'px'}">vk.com/czn_murman</a></v-row>
+                    <v-row><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3 mt-1" id="vk" :style="{fontSize: 17 + 'px'}">vk.com/czn_murman</a></v-row>
 
                     <v-row class="address text-left mt-15 mr-15" :style="{fontSize: 9 +'px'}">Мурманская область.<br> ГОБУ Центр занятости населения <br>г.Мурманска.<br> Улица Книповича 48</v-row>
 
@@ -96,8 +103,10 @@
                 <v-col cols=4>
                     <v-row><div id="docs">ДОКУМЕНТЫ:</div></v-row>
 
-                    <v-row class="mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 11 +'px'}">Политика в отношении обработки</div></v-row>
-                    <row><div id="personal-data-sec-part" class="text-left mt-3 ml-6" :style="{fontSize: 11 +'px'}">персональных данных</div></row>
+                    <div class="personal-data">
+                        <v-row class="mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 11 +'px'}">Политика в отношении обработки</div></v-row>
+                        <v-row><div id="personal-data-sec-part" class="text-left mt-3 ml-6" :style="{fontSize: 11 +'px'}">персональных данных</div></v-row>
+                    </div>
                 </v-col>
             </v-row>
 
@@ -114,8 +123,9 @@
                 </v-col>
                 <v-col cols=4>
                     <v-row><v-icon color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number" :style="{fontSize: 17 + 'px'}">8 (8152) 56-67-07</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="vk" :style="{fontSize: 17 + 'px'}">@KursNaSever</a></v-row>
                     <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" :style="{fontSize: 17 + 'px'}" >@czn_murman</a></v-row>
-                    <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk" :style="{fontSize: 17 + 'px'}">vk.com/czn_murman</a></v-row>
+                    <v-row><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3 mt-1" id="vk" :style="{fontSize: 17 + 'px'}">vk.com/czn_murman</a></v-row>
 
                     <v-row class="address text-left mt-15 mr-15" :style="{fontSize: 9 +'px'}">Мурманская область.<br> ГОБУ Центр занятости населения <br>г.Мурманска.<br> Улица Книповича 48</v-row>
 
@@ -127,8 +137,10 @@
                 <v-col cols=4>
                     <v-row><div id="docs" :style="{fontSize: 17 + 'px'}">ДОКУМЕНТЫ:</div></v-row>
 
-                    <v-row class="mt-5"><v-icon color="white" class="mr-1" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 10 +'px'}">Политика в отношении обработки</div></v-row>
-                    <row><div id="personal-data-sec-part" class="text-left mt-3 ml-4" :style="{fontSize: 10 +'px'}">персональных данных</div></row>
+                    <div class="personal-data">
+                        <v-row class="mt-5"><v-icon color="white" class="mr-1" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 10 +'px'}">Политика в отношении обработки</div></v-row>
+                        <v-row><div id="personal-data-sec-part" class="text-left mt-3 ml-4" :style="{fontSize: 10 +'px'}">персональных данных</div></v-row>
+                    </div>
                 </v-col>
             </v-row>
 
@@ -146,8 +158,9 @@
                 </v-col>
                 <v-col cols=4>
                     <v-row><v-icon color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number" :style="{fontSize: 15 + 'px'}">8 (8152) 56-67-07</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="vk" :style="{fontSize: 15 + 'px'}">@KursNaSever</a></v-row>
                     <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" :style="{fontSize: 15 + 'px'}" >@czn_murman</a></v-row>
-                    <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk" :style="{fontSize: 15 + 'px'}">vk.com/czn_murman</a></v-row>
+                    <v-row><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3 mt-1" id="vk" :style="{fontSize: 15 + 'px'}">vk.com/czn_murman</a></v-row>
 
                     <v-row class="address text-left mt-15 mr-15" :style="{fontSize: 8 +'px'}">Мурманская область.<br> ГОБУ Центр занятости населения <br>г.Мурманска.<br> Улица Книповича 48</v-row>
 
@@ -159,8 +172,10 @@
                 <v-col cols=4>
                     <v-row><div id="docs" :style="{fontSize: 16 + 'px'}">ДОКУМЕНТЫ:</div></v-row>
 
-                    <v-row class="mt-5"><v-icon color="white" class="mr-1" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 9 +'px'}">Политика в отношении обработки</div></v-row>
-                    <row><div id="personal-data-sec-part" class="text-left mt-3 ml-4" :style="{fontSize: 9 +'px'}">персональных данных</div></row>
+                    <div class="personal-data">
+                        <v-row class="mt-5"><v-icon color="white" class="mr-1" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 9 +'px'}">Политика в отношении обработки</div></v-row>
+                        <v-row><div id="personal-data-sec-part" class="text-left mt-3 ml-4" :style="{fontSize: 9 +'px'}">персональных данных</div></v-row>
+                    </div>
                 </v-col>
             </v-row>
 
@@ -178,8 +193,9 @@
                 </v-col>
                 <v-col cols=4>
                     <v-row><v-icon color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number" :style="{fontSize: 15 + 'px'}">8 (8152) 56-67-07</div></v-row>
+                    <v-row><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="vk" :style="{fontSize: 15 + 'px'}">@KursNaSever</a></v-row>
                     <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" :style="{fontSize: 15 + 'px'}" >@czn_murman</a></v-row>
-                    <v-row><v-icon color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk" :style="{fontSize: 15 + 'px'}">vk.com/czn_murman</a></v-row>
+                    <v-row><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a  href="https://vk.com/czn_murman" class="ml-3 mt-1" id="vk" :style="{fontSize: 15 + 'px'}">vk.com/czn_murman</a></v-row>
 
                     <v-row class="address text-left mt-15 mr-15" :style="{fontSize: 8 +'px'}">Мурманская область.<br> ГОБУ Центр занятости населения <br>г.Мурманска.<br> Улица Книповича 48</v-row>
 
@@ -191,8 +207,10 @@
                 <v-col cols=4>
                     <v-row><div id="docs" :style="{fontSize: 15 + 'px'}">ДОКУМЕНТЫ:</div></v-row>
 
-                    <v-row class="mt-5"><v-icon color="white" class="mr-1" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 8 +'px'}">Политика в отношении обработки</div></v-row>
-                    <row><div id="personal-data-sec-part" class="text-left mt-3 ml-4" :style="{fontSize: 8 +'px'}">персональных данных</div></row>
+                    <div class="personal-data">
+                        <v-row class="mt-5"><v-icon color="white" class="mr-1" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 8 +'px'}">Политика в отношении обработки</div></v-row>
+                        <v-row><div id="personal-data-sec-part" class="text-left mt-3 ml-4" :style="{fontSize: 8 +'px'}">персональных данных</div></v-row>
+                    </div>
                 </v-col>
             </v-row>
 
@@ -211,10 +229,12 @@
 
 
                     <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
+
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="mail" >@KursNaSever</a></div>
                             
                     <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
                                         
-                    <div class="block-inf-row mb-15"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
+                    <div class="block-inf-row mb-15"><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
                     
                     <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
 
@@ -223,9 +243,11 @@
                         
                     <div id="docs">ДОКУМЕНТЫ:</div>
 
-                    <div class="documents-row"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении</div></div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">обработки персональных</div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">данных</div>
+                    <div class="personal-data">
+                        <div class="documents-row mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении</div></div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10">обработки персональных</div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10">данных</div>
+                    </div>
                 </v-container>
             </v-col>
 
@@ -241,25 +263,131 @@
 
 
                     <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
+
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="mail" >@KursNaSever</a></div>
                             
                     <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
                                         
-                    <div class="block-inf-row mb-15"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
+                    <div class="block-inf-row mb-15"><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
                     
                     <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
 
-                    <v-btn width="200" @click="go_on_map" id="btn-send-anket" class="my-15">НАЙДИТЕ НАС НА КАРТЕ</v-btn>
+                    <v-btn width="200" @click="go_on_map" id="btn-send-anket" class="my-15"><span :style="{fontSize: 12 + 'px'}">НАЙДИТЕ НАС НА КАРТЕ</span></v-btn>
                     
                         
                     <div id="docs">ДОКУМЕНТЫ:</div>
 
-                    <div class="documents-row"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении</div></div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">обработки персональных</div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">данных</div>
+                    <div class="personal-data">
+                        <div class="documents-row"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении</div></div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10">обработки персональных</div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10">данных</div>
+                    </div>
                 </v-container>
             </v-col>
 
-            <v-col class="ml-10" v-if="width > 410 && width <= 450">
+            <v-col v-if="width > 410 && width <= 450" style="margin-right: auto; margin-left: auto;">
+                <v-container class="ml-14">
+                        <v-img
+                            src="../../assets/gerb/gerb_murmansk.svg"
+                            max-height="180"
+                            max-width="180"
+                            contain
+                        ></v-img>  
+                            <div class="rights mb-15">© 2023 «Курс на Север»</div>
+
+
+                            <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
+
+                            <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="mail" >@KursNaSever</a></div>
+                                    
+                            <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
+                                                
+                            <div class="block-inf-row mb-15"><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
+                            
+                            <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
+
+                            <v-btn width="200" @click="go_on_map" id="btn-send-anket" class="my-15"><span :style="{fontSize: 12 + 'px'}">НАЙДИТЕ НАС НА КАРТЕ</span></v-btn>
+                            
+                                
+                            <div id="docs">ДОКУМЕНТЫ:</div>
+
+                            <div class="personal-data">
+                                <div class="documents-row mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 12 + 'px'}">Политика в отношении</div></div>
+                                <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">обработки персональных</div>
+                                <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">данных</div>
+                            </div>
+                </v-container>
+            </v-col>
+
+            <v-col v-if="width > 390 && width <= 410" style="margin-right: auto; margin-left: auto;">
+                <v-container class="ml-10">
+                    <v-img
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="180"
+                        max-width="180"
+                        contain
+                    ></v-img>  
+                    <div class="rights mb-15">© 2023 «Курс на Север»</div>
+
+
+                    <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
+
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="mail" >@KursNaSever</a></div>
+                            
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
+                                        
+                    <div class="block-inf-row mb-15"><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
+                    
+                    <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
+
+                    <v-btn width="200" @click="go_on_map"  class="my-15"><span id="btn-send-anket" :style="{fontSize: 12 + 'px'}">НАЙДИТЕ НАС НА КАРТЕ</span></v-btn>
+                    
+                        
+                    <div id="docs">ДОКУМЕНТЫ:</div>
+
+                    <div class="personal-data">
+                        <div class="documents-row mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 12 + 'px'}">Политика в отношении</div></div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">обработки персональных</div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">данных</div>
+                    </div>
+                </v-container>
+            </v-col>
+
+            <v-col v-if="width > 360 && width <= 390" style="margin-right: auto; margin-left: auto;">
+                <v-container class="ml-8">
+                    <v-img
+                        src="../../assets/gerb/gerb_murmansk.svg"
+                        max-height="180"
+                        max-width="180"
+                        contain
+                    ></v-img>  
+                    <div class="rights mb-15">© 2023 «Курс на Север»</div>
+
+
+                    <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
+
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="mail" >@KursNaSever</a></div>
+                            
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
+                                        
+                    <div class="block-inf-row mb-15"><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
+                    
+                    <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
+
+                    <v-btn width="200" @click="go_on_map"  class="my-15"><span id="btn-send-anket" :style="{fontSize: 12 + 'px'}">НАЙДИТЕ НАС НА КАРТЕ</span></v-btn>
+                    
+                        
+                    <div id="docs">ДОКУМЕНТЫ:</div>
+
+                    <div class="personal-data">
+                        <div class="documents-row mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 12 + 'px'}">Политика в отношении</div></div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">обработки персональных</div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">данных</div>
+                    </div>
+                </v-container>
+            </v-col>
+
+            <v-col v-if="width <= 360" style="margin-right: auto; margin-left: auto;">
                 <v-container>
                     <v-img
                         src="../../assets/gerb/gerb_murmansk.svg"
@@ -271,51 +399,26 @@
 
 
                     <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
+
+                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@KursNaSever.ru" class="ml-3" id="mail" >@KursNaSever</a></div>
                             
                     <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
                                         
-                    <div class="block-inf-row mb-15"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
+                    <div class="block-inf-row mb-15"><v-img  class="mt-1" src="../../assets/logo/vk_white_2.svg" max-width="23"></v-img> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
                     
                     <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
 
-                    <v-btn width="200" @click="go_on_map" id="btn-send-anket" class="my-15">НАЙДИТЕ НАС НА КАРТЕ</v-btn>
+                    <v-btn width="200" @click="go_on_map"  class="my-15"><span id="btn-send-anket" :style="{fontSize: 12 + 'px'}">НАЙДИТЕ НАС НА КАРТЕ</span></v-btn>
                     
                         
                     <div id="docs">ДОКУМЕНТЫ:</div>
 
-                    <div class="documents-row"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении</div></div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">обработки персональных</div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">данных</div>
-                </v-container>
-            </v-col>
+                    <div class="personal-data">
+                        <div class="documents-row mt-5"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part" :style="{fontSize: 12 + 'px'}">Политика в отношении</div></div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">обработки персональных</div>
+                        <div id="personal-data-sec-part" class="text-left mt-3 ml-10" :style="{fontSize: 12 + 'px'}">данных</div>
 
-            <v-col v-if="width <= 410">
-                <v-container>
-                    <v-img
-                        src="../../assets/gerb/gerb_murmansk.svg"
-                        max-height="180"
-                        max-width="180"
-                        contain
-                    ></v-img>  
-                    <div class="rights mb-15">© 2023 «Курс на Север»</div>
-
-
-                    <div class="block-inf-row"><v-icon class="mt-1" color="white" icon="mdi-phone"></v-icon> <div class="ml-3" id="phone_number">8 (8152) 56-67-07</div></div>
-                            
-                    <div class="block-inf-row"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="mailto:@murman_zan.ru" class="ml-3" id="mail" >@czn_murman</a></div>
-                                        
-                    <div class="block-inf-row mb-15"><v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> <a href="https://vk.com/czn_murman" class="ml-3" id="vk">vk.com/czn_murman</a></div>
-                    
-                    <span class="address">Мурманская область. <br> ГОБУ Центр занятости населения <br> г.Мурманска.<br> Улица Книповича 48 <br></span>
-
-                    <v-btn width="200" @click="go_on_map" id="btn-send-anket" class="my-15">НАЙДИТЕ НАС НА КАРТЕ</v-btn>
-                    
-                        
-                    <div id="docs">ДОКУМЕНТЫ:</div>
-
-                    <div class="documents-row"><v-icon color="white" class="mr-3" icon="mdi-bookmark"></v-icon><div id="personal-data-fir-part">Политика в отношении</div></div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">обработки персональных</div>
-                    <div id="personal-data-sec-part" class="text-left mt-3 ml-10">данных</div>
+                    </div>
                 </v-container>
             </v-col>
         </v-container>
@@ -419,10 +522,24 @@ a{
     color: white;
     font-family: "MontserratMedium"; 
 }
+
 #personal-data-sec-part{
     color: white;
     font-family: "MontserratMedium";
 }
+
+.personal-data:hover{
+    cursor: pointer;
+}
+
+.personal-data:hover #personal-data-sec-part{
+    color: #D1E0E6;
+}
+
+.personal-data:hover #personal-data-fir-part{
+    color: #D1E0E6; 
+}
+
 
 #docs{
     color: white;

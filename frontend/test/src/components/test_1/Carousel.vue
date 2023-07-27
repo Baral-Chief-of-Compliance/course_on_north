@@ -7,10 +7,12 @@
             color="#2F5DA7"
         > 
 
+
+
             <v-carousel-item
             >
                 <v-img 
-                    src="../../assets/svg_for_carousel/logo_course.svg"
+                    src="../../assets/jpg_for_carousel/logo.jpg"
                     width="100%"
                     contain
                     cover
@@ -21,21 +23,21 @@
             <v-carousel-item
             >
                 <v-img
-                    src="../../assets/svg_for_carousel/target_project.svg"
+                    src="../../assets/jpg_for_carousel/target.jpg"
                 ></v-img>
             </v-carousel-item>
 
             <v-carousel-item
             >
                 <v-img
-                    src="../../assets/svg_for_carousel/recruting.svg"
+                    src="../../assets/jpg_for_carousel/recruting.jpg"
                 ></v-img>
             </v-carousel-item>
 
             <v-carousel-item
             >
                 <v-img  
-                    src="../../assets/svg_from_czn_site/route.svg" 
+                    src="../../assets/jpg_for_carousel/route.jpg" 
                     width="100%"
                     contain
                 />
@@ -44,7 +46,7 @@
             <v-carousel-item
             >  
                 <v-img  
-                    src="../../assets/svg_for_carousel/naseverezhit.svg" 
+                    src="../../assets/jpg_for_carousel/na_severe_live.jpg" 
                     width="100%"
                     contain
                     cover

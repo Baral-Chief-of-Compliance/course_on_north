@@ -9,7 +9,7 @@
             class="logo"
         /> -->
 
-        <div class="title-site ml-10">КУРС НА СЕВЕР!</div>
+        <v-btn @click="go_to_main"><div class="title-site">КУРС НА СЕВЕР!</div></v-btn> 
         <template v-slot:append>
             <v-app-bar-nav-icon class="mr-10" v-if="width <= 1280" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
@@ -119,6 +119,7 @@ export default{
         go_to_main(){
             if (get_name_part_of_navbar() != "TestHome_1"){
                 this.$router.push({name: "TestHome_1"})
+                window.scrollTo({ top: 0, behavior: 'smooth'})
                 set_part_of_navbar("TestHome_1")
 
                 this.projectColor = 'white'
@@ -269,6 +270,7 @@ export default{
 .nav-option{
     font-family: "MontserratMedium";
     font-size: 25px;
+    font-weight: 500;
 }
 
 
