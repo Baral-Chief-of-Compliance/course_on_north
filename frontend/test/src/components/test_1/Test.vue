@@ -10,6 +10,7 @@
     </div>
   </transition>
   <carousel :width="width"/>
+  <help-component />
   <video-info :width="width" />
   <!-- <about-project />
   <structure />
@@ -25,9 +26,10 @@ import Carousel from './Carousel.vue';
 import Structure from './Structure.vue';
 import ClientsInfo from './ClientsInfo.vue';
 import VideoInfo from './VideoInfo.vue';
+import HelpComponent from './HelpComponent.vue';
 import GoToAnketaParticipant from './GoToAnketaParticipant.vue';
 import { registerPlugins } from '@/plugins';
-import { useWindowSize} from '@vueuse/core'
+import { useWindowSize} from '@vueuse/core';
 
 
 
@@ -66,7 +68,8 @@ export default{
         Structure,
         ClientsInfo,
         VideoInfo,
-        GoToAnketaParticipant
+        GoToAnketaParticipant,
+        HelpComponent
     },
 
     methods: {

@@ -1,8 +1,7 @@
 <template>
     <v-container>
-        <v-btn @click="go_back"  variant="outlined" class="my-5">
-            <v-icon icon="mdi-arrow-collapse-left" color="#2F5DA7" class="mr-2"></v-icon>на главную
-        </v-btn>
+        <button-back label="на главную" @my-event="go_back" />
+
         <div class="text-h3">Анкета соискателя</div>
         <div class="text-h5 mt-5">Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны.</div>
 
@@ -124,7 +123,14 @@
 </template>
 
 <script>
+import ButtonBack from './../../components/test_1/details/ButtonBack.vue'
+
+
 export default{
+
+    components: {
+        ButtonBack
+    },
     data(){
         return{
             selected: [],
