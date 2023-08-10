@@ -23,23 +23,30 @@
             <v-carousel-item
             >
                 <v-img
-                    src="../../assets/jpg_for_carousel/target.jpg"
+                    src="../../assets/jpg_for_carousel/murmansr_atumn.jpg"
+                    width="100%"
+                    contain
+                    cover
                 ></v-img>
             </v-carousel-item>
 
             <v-carousel-item
             >
                 <v-img
-                    src="../../assets/jpg_for_carousel/recruting.jpg"
+                    src="../../assets/jpg_for_carousel/night_murmansk_2.jpg"
+                    width="100%"
+                    contain
+                    cover
                 ></v-img>
             </v-carousel-item>
 
             <v-carousel-item
             >
                 <v-img  
-                    src="../../assets/jpg_for_carousel/route.jpg" 
+                    src="../../assets/jpg_for_carousel/night_murmansk.jpg" 
                     width="100%"
                     contain
+                    cover
                 />
             </v-carousel-item>
 
@@ -66,7 +73,7 @@ export default{
     },
     data(){
         return{
-            similarityFactor: 0.443
+            similarityFactor: 0.460
         }
     },
 

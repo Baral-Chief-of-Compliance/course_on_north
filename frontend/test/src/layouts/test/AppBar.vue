@@ -3,7 +3,7 @@
         <v-img
             max-height="100"
             max-width="115"
-            contain
+            width="100%"
             src="../../assets/logo/logo-for-header-on-gray.svg"
             @click="go_to_main"
             class="logo"
@@ -11,16 +11,16 @@
 
         <!-- <v-btn @click="go_to_main"><div class="title-site">КУРС НА СЕВЕР!</div></v-btn>  -->
         <template v-slot:append>
-            <v-app-bar-nav-icon class="mr-10" v-if="width <= 1280" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon class="mr-10" v-if="width <= 1555" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
         <v-spacer></v-spacer>
-        <div class="mr-11" v-if="width > 1280">
-            <v-row justify="center" no-gutters v-if="width > 1280">
+        <div class="mr-11" v-if="width > 1555">
+            <v-row justify="center" no-gutters v-if="width > 1555">
                 <nav-option-button label="о проекте" @go-to="go_to_menu_punkt('about_project')" />
                 <nav-option-button label="помощь" @go-to="go_to_menu_punkt('help')" />
                 <nav-option-button label="мурманская область" @go-to="go_to_menu_punkt('murman_region')" />
-                <nav-option-button label="соискателю" @go-to="go_to_menu_punkt('')" />
-                <nav-option-button label="работодателю" @go-to="go_to_menu_punkt('')" />
+                <nav-option-button label="соискателю" @go-to="go_to_other_punkt('AnketaSoiskatelya')" />
+                <nav-option-button label="работодателю" @go-to="go_to_other_punkt('AnketaEmployer')" />
                 <nav-option-button label="медработникам" @go-to="go_to_menu_punkt('health_worker_info')" />
                 <nav-option-button label="педагогам" @go-to="go_to_menu_punkt('teachers')" />
             </v-row>
@@ -28,20 +28,23 @@
         <v-spacer></v-spacer>
     </v-app-bar>
 
+
+
     <v-navigation-drawer
         v-model="drawer"
         location="top"
         color="#eb6635"
         temporary
-        v-if="width <= 1340"
+        v-if="width <= 1555"
       >
         <v-list>
-            <v-list-item @click="go_to_about_project"><span class="nav-option" :style="{color: projectColor}">О ПРОЕКТЕ</span></v-list-item>
-            <v-list-item @click="go_to_struct"><span class="nav-option" :style="{color: structColor}">СТРУКТУРА</span></v-list-item>
-            <!-- <v-list-item @click="go_to_clients"><span class="nav-option" :style="{color: clientsPartnersColor}">КЛИЕНТЫ И ПАРТНЕРЫ</span></v-list-item> -->
-            <!-- <v-list-item @click="go_to_news"><span class="nav-option" :style="{color: newsColor}">НОВОСТИ</span></v-list-item> -->
-            <v-list-item @click="go_to_anketa_soiskatelya"><span class="nav-option" :style="{color: clientsColor}">СОИСКАТЕЛЮ</span></v-list-item>
-            <v-list-item @click="go_to_anketa_employer"><span class="nav-option" :style="{color: employerColor}">РАБОТОДАТЕЛЮ</span></v-list-item>
+            <v-list-item @click="go_to_menu_punkt('about_project')"><span class="nav-option-mobile">О ПРОЕКТЕ</span></v-list-item>
+            <v-list-item @click="go_to_menu_punkt('help')"><span class="nav-option-mobile">ПОМОЩЬ</span></v-list-item>
+            <v-list-item @click="go_to_menu_punkt('murman_region')"><span class="nav-option-mobile">МУРМАНСКАЯ ОБЛАСТЬ</span></v-list-item>
+            <v-list-item @click="go_to_other_punkt('AnketaSoiskatelya')"><span class="nav-option-mobile">СОИСКАТЕЛЮ</span></v-list-item>
+            <v-list-item @click="go_to_other_punkt('AnketaEmployer')"><span class="nav-option-mobile">РАБОТОДАТЕЛЮ</span></v-list-item>
+            <v-list-item @click="go_to_menu_punkt('health_worker_info')"><span class="nav-option-mobile">МЕДРАБОТНИКАМ</span></v-list-item>
+            <v-list-item @click="go_to_menu_punkt('teachers')"><span class="nav-option-mobile">ПЕДАГОГАМ</span></v-list-item>
         </v-list>
       </v-navigation-drawer>
 </template>
@@ -71,80 +74,40 @@ export default{
         NavOptionButton
     },
 
+    created(){
+        this.settings_local_storage()
+    },
+
     methods: {
 
+        settings_local_storage(){
+            set_part_of_navbar("TestHome_1")
+        },
+
         go_to_menu_punkt(refName){
-            const element = document.getElementById(refName);
-            element.scrollIntoView({behavior: "smooth"});
-        },
 
-        go_to_main(){
             if (get_name_part_of_navbar() != "TestHome_1"){
                 this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 0, behavior: 'smooth'})
-                set_part_of_navbar("TestHome_1")
-            } else {
-                this.drawer=false
-                window.scrollTo({ top: 0, behavior: 'smooth'})
+                this.drawer = false;
+                setTimeout(() => {
+                    const element = document.getElementById(refName);
+                    element.scrollIntoView({behavior: "smooth"});
+                    set_part_of_navbar("TestHome_1")
+                }, 100)
+
+            } else{
+                this.drawer = false;
+                const element = document.getElementById(refName);
+                element.scrollIntoView({behavior: "smooth"});
             }
 
-        },
-        go_to_about_project(){
-            if (get_name_part_of_navbar() != "TestHome_1"){
-                this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 1400, behavior: 'smooth'})
-                set_part_of_navbar("TestHome_1")
-            }   else{
-                this.drawer=false
-                set_part_of_navbar("TestHome_1")
-                window.scrollTo({ top: 1400, behavior: 'smooth'})
-            }
-
+            
         },
 
-        go_to_struct(){
-            if (get_name_part_of_navbar() != "TestHome_1"){
-                this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 2200, behavior: 'smooth'})
-                set_part_of_navbar("TestHome_1")
-
-            }   else{
-                this.drawer=false
-                set_part_of_navbar("TestHome_1")
-                window.scrollTo({ top: 2200, behavior: 'smooth'})
-            }
-
-        },
-
-        go_to_clients(){
-            if (get_name_part_of_navbar() != "TestHome_1"){
-                this.$router.push({name: "TestHome_1"})
-                window.scrollTo({ top: 3000, behavior: 'smooth'})
-                set_part_of_navbar("TestHome_1")
-
-            }   else {
-                this.drawer=false
-                set_part_of_navbar("TestHome_1")
-                window.scrollTo({ top: 3000, behavior: 'smooth'})
-            }
-
-        },
-
-        go_to_anketa_soiskatelya(){
-            set_part_of_navbar("AnketaSoiskatelya")
-            this.$router.push({name: "AnketaSoiskatelya"})
-        },
-
-        go_to_anketa_employer(){
-            set_part_of_navbar("AnketaEmployer")
-            this.$router.push({name: "AnketaEmployer"})
-        },
-
-        go_to_news(){
-            set_part_of_navbar("News")
-            this.$router.push({name: "News"})
+        go_to_other_punkt(refName){
+            set_part_of_navbar(refName)
+            this.$router.push({name: refName})
         }
-
     }
 }
 </script>
@@ -168,6 +131,14 @@ export default{
     font-family: "CorkiRegular";
     color: white;
     font-size: 30px;
+}
+
+.nav-option-mobile{
+    color: white;
+    font-family: "MontserratMedium";
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 </style>

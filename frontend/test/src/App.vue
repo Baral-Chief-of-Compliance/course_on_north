@@ -10,3 +10,9 @@ provide('mainColor', '#2F5DA7');
 provide('addColor', '#eb6635');
 provide('navOptionColor', 'white')
 </script>
+
+<style>
+* {
+  scroll-margin-top: 75px;
+}
+</style>

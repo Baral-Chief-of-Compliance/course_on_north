@@ -3,6 +3,48 @@
         <v-container  class="py-10">
             <TitleComponent :typeStyle="typeStyle" title="меры поддержки для медецинских работников" />
             <TextForInfBlock :textContent="text" :textStyle="textComponent" />
+
+            <v-row>
+                <v-col cols="1"></v-col>
+
+                <v-col cols="3">
+                    <HealthInfoCard title="потребность в медицинских кадрах" />
+                </v-col>
+                <v-col cols="3">
+                    <HealthInfoCard title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" />
+                </v-col>
+                <v-col cols="3">
+                    <HealthInfoCard title="потребность в " />
+                </v-col>
+
+                <v-col cols="1"></v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="1"></v-col>
+
+                <v-col cols="3">
+                    <HealthInfoCard title="потребность в медицинских кадрах" />
+                </v-col>
+                <v-col cols="3">
+                    <HealthInfoCard title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" />
+                </v-col>
+                <v-col cols="3">
+                    <HealthInfoCard title="потребность в " />
+                </v-col>
+
+                <v-col cols="1"></v-col>
+            </v-row>
+
+            <v-row>
+                <v-col cols="1"></v-col>
+                <v-col cols="3"></v-col>
+                <v-col cols="3">
+                    <HealthInfoCard title="потребность в " />
+                </v-col>
+                <v-col cols="3"></v-col>
+                <v-col cols="1"></v-col>
+            </v-row>
+            
         </v-container>
     </div>
 </template>
@@ -10,6 +52,7 @@
 <script>
 import TitleComponent from './../test_1/details/TitleComponents.vue'
 import TextForInfBlock from './../test_1/details/TextForInfBlock.vue';
+import HealthInfoCard from './../test_1/details/HealthInfo/HealthInfoCard.vue'
 import { inject } from 'vue';
 
 export default{
@@ -22,7 +65,8 @@ export default{
 
     components: {
         TitleComponent,
-        TextForInfBlock
+        TextForInfBlock,
+        HealthInfoCard
     },
 
     props: {
