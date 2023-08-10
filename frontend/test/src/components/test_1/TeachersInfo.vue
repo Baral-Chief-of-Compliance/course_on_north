@@ -18,7 +18,7 @@
                                 @click=""
                             >
                             <v-img 
-                                    src="../../assets/teachers/1.jpg"
+                                    src="@/assets/teachers/1.jpg"
                                     contain
                                     width="100%"
                                     cover

@@ -10,13 +10,13 @@
                 <v-col cols="5">
                     <HealthInfoCard 
                         title="ПОТРЕБНОСТЬ В МЕДИЦИНСКИХ КАДРАХ"
-                        path="http://localhost:3000/src/assets/health_worker/1.jpg"
+                        path="1.jpg"
                      />
                 </v-col>
                 <v-col cols="5">
                     <HealthInfoCard 
                         title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" 
-                        path="http://localhost:3000/src/assets/health_worker/2.jpg"
+                        path="2.jpg"
                     />
                 </v-col>
 
@@ -29,13 +29,13 @@
                 <v-col cols="5">
                     <HealthInfoCard 
                         title="ОБЕСПЕЧЕНИЕ ЖИЛЬЕМ" 
-                        path="http://localhost:3000/src/assets/health_worker/3.jpg"
+                        path="3.jpg"
                     />
                 </v-col>
                 <v-col cols="5">
                     <HealthInfoCard 
                         title="ЗАРАБОТНАЯ ПЛАТА И ВЫПЛАТЫ" 
-                        path="http://localhost:3000/src/assets/health_worker/4.jpg"
+                        path="4.jpg"
                     />
                 </v-col>
 
@@ -47,13 +47,13 @@
                 <v-col cols="5">
                     <HealthInfoCard 
                         title="ПОМОЩЬ ПРЕДПРИЯТИЙ И МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ" 
-                        path="http://localhost:3000/src/assets/health_worker/5.jpg"
+                        path="5.jpg"
                     />
                 </v-col>
                 <v-col cols="5">
                     <HealthInfoCard 
                         title="ПОДДЕРЖКА БУДУЩИХ МЕДИЦИНСКИХ РАБОТНИКОВ" 
-                        path="http://localhost:3000/src/assets/health_worker/6.jpg"
+                        path="6.jpg"
                     />
                 </v-col>
                 <v-col cols="1"></v-col>
@@ -64,7 +64,7 @@
                 <v-col cols="6">
                     <HealthInfoCard 
                         title="СОЦИАЛЬНАЯ ПОДДЕРЖКА" 
-                        path="http://localhost:3000/src/assets/health_worker/7.jpg"
+                        path="7.jpg"
                     />
                 </v-col>
                 <v-col cols="3"></v-col>

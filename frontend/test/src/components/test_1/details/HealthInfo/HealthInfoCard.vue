@@ -10,7 +10,7 @@
             >
 
                 <v-img 
-                    :src="path"
+                    :src="imageUrl"
                     contain
                     width="100%"
                     cover
@@ -39,7 +39,7 @@
             </v-card-title>
             <v-card-text>
                 <v-img
-                    :src="path"
+                    :src="imageUrl"
                     width="1300"
                 >    
                 </v-img>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { inject } from 'vue'
+import { inject } from 'vue';
 
 export default{
     props:{
@@ -71,13 +71,9 @@ export default{
 
     setup(props){
         const mainColor = inject('mainColor')
+        const imageUrl = new URL(`../../../../assets/health_worker/${props.path}`, import.meta.url).href
 
-        function getImageUrl() {
-            // This path must be correct for your file
-            return new URL(`../../../../assets/for_ankets/${props.path}`, import.meta.url)
-        }
-
-        return { mainColor, getImageUrl }
+        return { mainColor, imageUrl  }
     }
 
 }
