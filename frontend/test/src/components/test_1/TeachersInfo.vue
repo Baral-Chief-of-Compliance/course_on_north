@@ -37,6 +37,55 @@
                             </v-card-actions>
                             </v-card>
                         </template>
+
+                        <v-card>
+                            <v-card-title class="card_title my-5" :style="{color: addColor}">
+                                НОВЫЕ МЕРЫ ПОДДЕРЖКИ ПЕДАГОГИЧЕСКИХ РАБОТНИКОВ
+                            </v-card-title>
+
+                            <v-card-text>
+                                <v-img
+                                    src="@/assets/teachers/2.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                                <v-img
+                                    src="@/assets/teachers/3.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                                <v-img
+                                    src="@/assets/teachers/4.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                                <v-img
+                                    src="@/assets/teachers/5.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                                <v-img
+                                    src="@/assets/teachers/6.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                                <v-img
+                                    src="@/assets/teachers/7.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                                <v-img
+                                    src="@/assets/teachers/8.jpg"
+                                    width="1300"
+                                >    
+                                </v-img>
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-btn variant="outlined" :color="addColor" block @click="dialog = false">
+                                <span class="btn_title">закрыть</span> 
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card>
                     </v-dialog>
                 </v-col>
 
