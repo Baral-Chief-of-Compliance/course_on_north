@@ -16,13 +16,13 @@
         <v-spacer></v-spacer>
         <div class="mr-11" v-if="width > 1280">
             <v-row justify="center" no-gutters v-if="width > 1280">
-                <nav-option-button label="о проекте" @go-to="go_to_about_project" />
-                <nav-option-button label="помощь" @go-to="go_to_about_project" />
-                <nav-option-button label="мурманская область" @go-to="go_to_about_project" />
-                <nav-option-button label="соискателю" @go-to="go_to_anketa_soiskatelya" />
-                <nav-option-button label="работодателю" @go-to="go_to_anketa_employer" />
-                <nav-option-button label="медработникам" @go-to="go_to_anketa_employer" />
-                <nav-option-button label="педагогам" @go-to="go_to_anketa_employer" />
+                <nav-option-button label="о проекте" @go-to="go_to_menu_punkt('about_project')" />
+                <nav-option-button label="помощь" @go-to="go_to_menu_punkt('help')" />
+                <nav-option-button label="мурманская область" @go-to="go_to_menu_punkt('murman_region')" />
+                <nav-option-button label="соискателю" @go-to="go_to_menu_punkt('')" />
+                <nav-option-button label="работодателю" @go-to="go_to_menu_punkt('')" />
+                <nav-option-button label="медработникам" @go-to="go_to_menu_punkt('health_worker_info')" />
+                <nav-option-button label="педагогам" @go-to="go_to_menu_punkt('teachers')" />
             </v-row>
         </div>
         <v-spacer></v-spacer>
@@ -72,6 +72,11 @@ export default{
     },
 
     methods: {
+
+        go_to_menu_punkt(refName){
+            const element = document.getElementById(refName);
+            element.scrollIntoView({behavior: "smooth"});
+        },
 
         go_to_main(){
             if (get_name_part_of_navbar() != "TestHome_1"){

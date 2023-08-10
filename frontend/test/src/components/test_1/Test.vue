@@ -10,12 +10,16 @@
     </div>
   </transition>
   <carousel :width="width"/>
+  <about-project typeStyle="reverse" />
   <help-component />
-  <video-info :width="width" />
-  <!-- <about-project />
+  <video-info :width="width" typeStyle="reverse" />
+  <!-- 
   <structure />
   <clients-info /> -->
   <go-to-anketa-participant :width="width" />
+
+  <health-worker-info typeStyle="reverse" />
+  <teachers-info />
 </template>
 
 
@@ -28,6 +32,10 @@ import ClientsInfo from './ClientsInfo.vue';
 import VideoInfo from './VideoInfo.vue';
 import HelpComponent from './HelpComponent.vue';
 import GoToAnketaParticipant from './GoToAnketaParticipant.vue';
+import HealthWorkerInfo from './HealthWorkerInfo.vue'; 
+import TeachersInfo from './TeachersInfo.vue';
+
+
 import { registerPlugins } from '@/plugins';
 import { useWindowSize} from '@vueuse/core';
 
@@ -69,7 +77,9 @@ export default{
         ClientsInfo,
         VideoInfo,
         GoToAnketaParticipant,
-        HelpComponent
+        HelpComponent,
+        HealthWorkerInfo,
+        TeachersInfo
     },
 
     methods: {
