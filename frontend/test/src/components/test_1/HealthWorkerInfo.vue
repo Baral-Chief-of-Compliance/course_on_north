@@ -4,47 +4,150 @@
             <TitleComponent :typeStyle="typeStyle" title="меры поддержки для медецинских работников" />
             <TextForInfBlock :textContent="text" :textStyle="textComponent" />
 
-            <v-row>
+            <v-row v-if="width > 962">
                 <v-col cols="1"></v-col>
 
-                <v-col cols="3">
-                    <HealthInfoCard title="потребность в медицинских кадрах" />
+                <v-col cols="5">
+                    <HealthInfoCard 
+                        title="ПОТРЕБНОСТЬ В МЕДИЦИНСКИХ КАДРАХ"
+                        path="http://localhost:3000/src/assets/health_worker/1.jpg"
+                     />
                 </v-col>
-                <v-col cols="3">
-                    <HealthInfoCard title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" />
-                </v-col>
-                <v-col cols="3">
-                    <HealthInfoCard title="потребность в " />
-                </v-col>
-
-                <v-col cols="1"></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="1"></v-col>
-
-                <v-col cols="3">
-                    <HealthInfoCard title="потребность в медицинских кадрах" />
-                </v-col>
-                <v-col cols="3">
-                    <HealthInfoCard title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" />
-                </v-col>
-                <v-col cols="3">
-                    <HealthInfoCard title="потребность в " />
+                <v-col cols="5">
+                    <HealthInfoCard 
+                        title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" 
+                        path="http://localhost:3000/src/assets/health_worker/2.jpg"
+                    />
                 </v-col>
 
                 <v-col cols="1"></v-col>
             </v-row>
 
-            <v-row>
+            <v-row v-if="width > 962">
                 <v-col cols="1"></v-col>
+
+                <v-col cols="5">
+                    <HealthInfoCard 
+                        title="ОБЕСПЕЧЕНИЕ ЖИЛЬЕМ" 
+                        path="http://localhost:3000/src/assets/health_worker/3.jpg"
+                    />
+                </v-col>
+                <v-col cols="5">
+                    <HealthInfoCard 
+                        title="ЗАРАБОТНАЯ ПЛАТА И ВЫПЛАТЫ" 
+                        path="http://localhost:3000/src/assets/health_worker/4.jpg"
+                    />
+                </v-col>
+
+                <v-col cols="1"></v-col>
+            </v-row>
+
+            <v-row v-if="width > 962">
+                <v-col cols="1"></v-col>
+                <v-col cols="5">
+                    <HealthInfoCard 
+                        title="ПОМОЩЬ ПРЕДПРИЯТИЙ И МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ" 
+                        path="http://localhost:3000/src/assets/health_worker/5.jpg"
+                    />
+                </v-col>
+                <v-col cols="5">
+                    <HealthInfoCard 
+                        title="ПОДДЕРЖКА БУДУЩИХ МЕДИЦИНСКИХ РАБОТНИКОВ" 
+                        path="http://localhost:3000/src/assets/health_worker/6.jpg"
+                    />
+                </v-col>
+                <v-col cols="1"></v-col>
+            </v-row>
+
+            <v-row v-if="width > 962">
                 <v-col cols="3"></v-col>
-                <v-col cols="3">
-                    <HealthInfoCard title="потребность в " />
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="СОЦИАЛЬНАЯ ПОДДЕРЖКА" 
+                        path="http://localhost:3000/src/assets/health_worker/7.jpg"
+                    />
                 </v-col>
                 <v-col cols="3"></v-col>
-                <v-col cols="1"></v-col>
             </v-row>
-            
+
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="ПОТРЕБНОСТЬ В МЕДИЦИНСКИХ КАДРАХ"
+                        path="http://localhost:3000/src/assets/health_worker/1.jpg"
+                     />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ ВЫПЛАТЫ" 
+                        path="http://localhost:3000/src/assets/health_worker/2.jpg"
+                    />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="ОБЕСПЕЧЕНИЕ ЖИЛЬЕМ" 
+                        path="http://localhost:3000/src/assets/health_worker/3.jpg"
+                    />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="ЗАРАБОТНАЯ ПЛАТА И ВЫПЛАТЫ" 
+                        path="http://localhost:3000/src/assets/health_worker/4.jpg"
+                    />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="ПОМОЩЬ ПРЕДПРИЯТИЙ И МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ" 
+                        path="http://localhost:3000/src/assets/health_worker/5.jpg"
+                    />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="ПОДДЕРЖКА БУДУЩИХ МЕДИЦИНСКИХ РАБОТНИКОВ" 
+                        path="http://localhost:3000/src/assets/health_worker/6.jpg"
+                    />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
+            <v-row v-if="width <= 962">
+                <v-col cols="3"></v-col>
+                <v-col cols="6">
+                    <HealthInfoCard 
+                        title="СОЦИАЛЬНАЯ ПОДДЕРЖКА" 
+                        path="http://localhost:3000/src/assets/health_worker/7.jpg"
+                    />
+                </v-col>
+                <v-col cols="3"></v-col>
+            </v-row>
+
         </v-container>
     </div>
 </template>
@@ -75,6 +178,8 @@ export default{
 
     setup(props){
         const mainColor = inject('mainColor')
+        const width = inject('width')
+        const height = inject('height')
 
         const componentColor = {
             backgroundColor: 'white'
@@ -90,7 +195,7 @@ export default{
             textComponent.color = 'white'
         }
 
-        return { mainColor, componentColor, textComponent }
+        return { mainColor, componentColor, textComponent,  width, height }
     }
 }
 </script>

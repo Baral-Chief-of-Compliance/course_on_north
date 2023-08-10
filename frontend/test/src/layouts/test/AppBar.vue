@@ -51,8 +51,8 @@
 
 <script>
 import { set_part_of_navbar, get_name_part_of_navbar } from "@/localstorage/storage_of_location_site.js"
-import { useWindowSize} from '@vueuse/core'
 import NavOptionButton from './../../components/test_1/details/NavOptionButton.vue'
+import { inject } from "vue"
 
 
 export default{
@@ -65,8 +65,8 @@ export default{
     },
 
     setup(){
-        const { width, height } = useWindowSize()
-
+        const width = inject('width')
+        const height = inject('height')
         return { width, height}
     },
 
