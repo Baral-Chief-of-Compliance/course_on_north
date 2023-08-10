@@ -13,9 +13,9 @@
         <template v-slot:append>
             <v-app-bar-nav-icon class="mr-10" v-if="width <= 1280" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
-
+        <v-spacer></v-spacer>
         <div class="mr-11" v-if="width > 1280">
-            <v-row no-gutters justify="center" v-if="width > 1280">
+            <v-row justify="center" no-gutters v-if="width > 1280">
                 <nav-option-button label="о проекте" @go-to="go_to_about_project" />
                 <nav-option-button label="помощь" @go-to="go_to_about_project" />
                 <nav-option-button label="мурманская область" @go-to="go_to_about_project" />
@@ -25,6 +25,7 @@
                 <nav-option-button label="педагогам" @go-to="go_to_anketa_employer" />
             </v-row>
         </div>
+        <v-spacer></v-spacer>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -158,32 +159,10 @@ export default{
 }
 
 
-
 .title-site{
     font-family: "CorkiRegular";
     color: white;
     font-size: 30px;
 }
 
-
-/* @font-face { 
-    font-family: "CorkiRegular";
-    src: url("../../assets/CorkiRegular/CorkiRegular.eot");
-    src: url("../../assets/CorkiRegular/CorkiRegular.eot?#iefix")format("embedded-opentype"),
-    url("../../assets/CorkiRegular/CorkiRegular.woff") format("woff"),
-    url("../../assets/CorkiRegular/CorkiRegular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-
-@font-face {
-    font-family: "MontserratMedium";
-    src: url("../../assets/Montserrat/Montserrat-Regular.eot");
-    src: url("../../assets/Montserrat/Montserrat-Regular.eot?#iefix")format("embedded-opentype"),
-    url("../../assets/Montserrat/Montserrat-Regular.woff") format("woff"),
-    url("../../assets/Montserrat/Montserrat-Regular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-} */
 </style>

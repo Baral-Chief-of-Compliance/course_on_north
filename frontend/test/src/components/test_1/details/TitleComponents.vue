@@ -26,7 +26,8 @@ export default{
     font-weight: 400;
     line-height: 76px;
     font-family: "CorkiRegular";
-    color: #eb6635
+    color: #eb6635;
+    text-transform: uppercase;
 }
 
 </style>
