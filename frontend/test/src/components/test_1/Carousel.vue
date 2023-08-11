@@ -1,60 +1,17 @@
 <template>
         <v-carousel ref="carousel"
             cycle
-            :height="maxHeightCarousel"
+            :height="height-80"
+            :width="width"
             hide-delimiter-background
             show-arrows="hover"
-            color="#2F5DA7"
+            :color="mainColor"
         > 
-
-
-
-            <v-carousel-item
-            >
-                <v-img 
-                    src="../../assets/jpg_for_carousel/logo.jpg"
-                    width="100%"
-                    contain
-                    cover
-                >
-                </v-img>
-            </v-carousel-item>
-
-            <v-carousel-item
-            >
-                <v-img
-                    src="../../assets/jpg_for_carousel/murmansr_atumn.jpg"
-                    width="100%"
-                    contain
-                    cover
-                ></v-img>
-            </v-carousel-item>
-
-            <v-carousel-item
-            >
-                <v-img
-                    src="../../assets/jpg_for_carousel/night_murmansk_2.jpg"
-                    width="100%"
-                    contain
-                    cover
-                ></v-img>
-            </v-carousel-item>
-
-            <v-carousel-item
-            >
+            <v-carousel-item v-for="img in imgs">
                 <v-img  
-                    src="../../assets/jpg_for_carousel/night_murmansk.jpg" 
-                    width="100%"
-                    contain
-                    cover
-                />
-            </v-carousel-item>
-
-            <v-carousel-item
-            >  
-                <v-img  
-                    src="../../assets/jpg_for_carousel/na_severe_live.jpg" 
-                    width="100%"
+                    :src="get_image_URL(img.name)" 
+                    :height="height"
+                    :width="width"
                     contain
                     cover
                 />
@@ -65,22 +22,43 @@
 
 
 <script>
+import { inject } from 'vue';
 
 export default{
 
-    props:{
-        width: Number
-    },
     data(){
-        return{
-            similarityFactor: 0.460
+        return {
+            one_img: 'logo.jpg',
+            imgs: [
+                {
+                    name:'logo.jpg'
+                },
+                {
+                    name:'murmansr_atumn.jpg'
+                },
+                {
+                    name:'night_murmansk_2.jpg'
+                },
+                {
+                    name:'night_murmansk.jpg'
+                },
+                {
+                    name:'na_severe_live.jpg'
+                }
+            ]
         }
     },
 
-    computed: {
-        maxHeightCarousel(){
-            return this.width * this.similarityFactor
+    setup(){
+        const width = inject('width')
+        const height = inject('height')
+        const mainColor = inject('mainColor')
+
+        function get_image_URL(name){
+            return new URL(`../../assets/jpg_for_carousel/${name}`, import.meta.url).href
         }
+
+        return { width, height, mainColor, get_image_URL}
     }
 
 }

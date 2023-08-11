@@ -13,8 +13,9 @@
         <template v-slot:append>
             <v-app-bar-nav-icon class="mr-10" v-if="width <= 1555" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
-        <v-spacer></v-spacer>
+        <v-spacer v-if="width > 1555"></v-spacer>
         <div class="mr-11" v-if="width > 1555">
+ 
             <v-row justify="center" no-gutters v-if="width > 1555">
                 <nav-option-button label="о проекте" @go-to="go_to_menu_punkt('about_project')" />
                 <nav-option-button label="помощь" @go-to="go_to_menu_punkt('help')" />
@@ -24,8 +25,10 @@
                 <nav-option-button label="медработникам" @go-to="go_to_menu_punkt('health_worker_info')" />
                 <nav-option-button label="педагогам" @go-to="go_to_menu_punkt('teachers')" />
             </v-row>
+
         </div>
-        <v-spacer></v-spacer>
+        <v-spacer v-if="width > 1555"></v-spacer>
+
     </v-app-bar>
 
 

@@ -6,8 +6,6 @@ import AnketaSoiskatelya from '@/components/test_1/AnketaSoiskatelya.vue'
 import AnketaEmployer from '@/components/test_1/AnketaEmployer.vue'
 import Map from '@/components/test_1/Map.vue'
 import News from '@/components/test_1/News.vue'
-import DefaultAdmin from '@/layouts/admin/DefaultAdmin.vue'
-import AdminHome from '@/views/AdminHome.vue'
 import ThanksAnketa from '@/components/test_1/ThanksAnketa.vue'
 
 
@@ -48,18 +46,6 @@ const routes = [
         path: '/thanks-for-anketa',
         name: 'ThanksAnketa',
         component: ThanksAnketa
-      }
-    ]
-  },
-
-  {
-    path: '/admin',
-    component: DefaultAdmin,
-    children: [
-      {
-        path: '/admin/',
-        name: 'AdminIndex',
-        component: AdminHome
       }
     ]
   }

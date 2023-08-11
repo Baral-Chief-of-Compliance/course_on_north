@@ -1,110 +1,58 @@
 <template>
     <div id="ankets">
-        <v-container class="py-10">
-            <!-- <div :class="[ width > 1000 ? 'title-for-page-corki' : 'title_for_page_corki_mobile' ]">АНКЕТА УЧАСТНИКА</div>
-            <div :class="[ width > 1000 ? 'text-under-button' : 'text-under-button-mobile']">Чтобы принять участие в проекте необходимо заполнить анкету.</div> -->
-            <!-- <v-btn @click="go_to_anketa_anketa_soiskatelya" class="my-3" color="#73C3F0" block><span class="text-under-button-send-soiskatelya">я соискатель</span></v-btn>
-            <v-btn @click="go_to_anketa_anketa_employer" class="mt-3" color="#eb6635" block><span class="text-under-button-send-employer">я работодатель</span></v-btn> -->
-            
+        <v-container class="py-10">            
             <TitleComponent :typeStyle="typeStyle" title="анкета участника" />
             <TextForInfBlock :textContent="text" :textStyle="textComponent" />
-
-            <v-row justify="center" class="mt-5" v-if="width > 860">
-                <v-col cols="5" class="mr-5">
-                    <div>
-                        <v-hover v-slot="{ isHovering, props }">
+            <v-row>
+                <v-col v-if="width > 1280" cols=1></v-col>
+                <v-col :cols="( width > 1280) ? 5: 12" v-for="anket in data_for_ankets">
+                    <v-hover v-slot="{ isHovering, props }">
                         <v-card
                             class="mx-auto"
-                            @click="go_to_anketa_anketa_soiskatelya"
+                            @click="go_to_anketa(anket.name)"
                             v-bind="props"
                         >
-                            <v-img src="../../assets/for_ankets/soiskatel.png"></v-img>
+                            <v-img :src="get_image_URL(anket.img_src)" ></v-img>
 
                             <v-card-text>
-                            <div class="mb-10" :style="{fontSize: 50 + 'px', fontWeight: 'bold', color: '#2F5DA7', fontFamily: 'CorkiRegular'}">
-                                Я соискатель
-                            </div>
-                            Меня заинтеросовала программа "Курс на север!", и я готов принять в ней участие
+                                <div class="mb-10" :style="{fontSize: 50 + 'px', color: anket.color_title, fontFamily: 'CorkiRegular'}">
+                                    <p style="line-height: 1; text-transform: uppercase; word-break: normal; ">{{ anket.title }}</p>
+                                </div>
+                                <div :style="{fontFamily: 'MontserratMedium', fontSize: 16}">
+                                    {{ anket.sub_title }}
+                                </div>
                             </v-card-text>
 
                             <v-overlay
-                            :model-value="isHovering"
-                            contained
-                            scrim="#73C3F0"
-                            class="align-center justify-center"
+                                :model-value="isHovering"
+                                contained
+                                :scrim="anket.color_overlay"
+                                class="align-center justify-center"
                             >
-                            <v-btn @click="go_to_anketa_anketa_soiskatelya" variant="flat" color="#73C3F0"><span class="text-under-button-send-soiskatelya">Заполнить анкету соискателя</span></v-btn>
+                                <v-btn @click="go_to_anketa(anket.name)" variant="flat" :color="anket.color_title">
+                                    <span class="text-under-button">
+                                        {{ anket.btn_title }}
+                                    </span>
+                                </v-btn>
                             </v-overlay>
                         </v-card>
-                        </v-hover>
-                    </div>
+                    </v-hover>
                 </v-col>
-
-                <v-col cols="5" class="ml-5">
-                    <div>
-                        <v-hover v-slot="{ isHovering, props }">
-                        <v-card
-                            class="mx-auto"
-                            @click="go_to_anketa_anketa_employer"
-                            v-bind="props"
-                        >
-                            <v-img src="../../assets/for_ankets/new_employer.jpg"></v-img>
-
-                            <v-card-text>
-                            <div class="mb-10" :style="{fontSize: 50 + 'px', fontWeight: 'bold', color: '#eb6635', fontFamily: 'CorkiRegular'}">
-                                Я работодатель
-                            </div>
-                            Я готов предоставить вакансии, чтобы помочь программе "Курс на север!"
-                            </v-card-text>
-
-                            <v-overlay
-                            :model-value="isHovering"
-                            contained
-                            scrim="#EAA379"
-                            class="align-center justify-center"
-                            >
-                            <v-btn @click="go_to_anketa_anketa_employer" variant="flat" color="#EAA379"><span class="text-under-button-send-employer">Заполнить анкету работадателя</span></v-btn>
-                            </v-overlay>
-                        </v-card>
-                        </v-hover>
-                    </div>
-                </v-col>
-
+                <v-col v-if="width > 1280" cols=1></v-col>
             </v-row>
-
-            <v-btn v-if="width <= 860" @click="go_to_anketa_anketa_soiskatelya" class="my-3" color="#73C3F0" block><span class="text-under-button-send-soiskatelya">я соискатель</span></v-btn>
-            <v-btn v-if="width <= 860" @click="go_to_anketa_anketa_employer" class="mt-3" color="#EAA379" block><span class="text-under-button-send-employer">я работодатель</span></v-btn>
-
         </v-container>
 
     </div>
 </template>
 
 <style scoped>
-.text-under-button-send-soiskatelya{
-    color: #005a8c;
-    font-family: "MontserratMedium";
-    font-size: 13px;
-    font-weight: bold;
-}
 
-.text-under-button-send-employer{
-    color: #EA4D38;
-    font-family: "MontserratMedium";
-    font-size: 13px;
-    font-weight: bold;
-}
 
 .text-under-button{
     font-family: "MontserratMedium";
-    font-size: 20px;
-    color: black;
-}
-
-.text-under-button-mobile{
-    font-family: "MontserratMedium";
     font-size: 15px;
-    color: black;
+    font-weight: bold;
+    color: white
 }
 
 </style>
@@ -123,7 +71,6 @@ export default{
 
 
     props:{
-        width: Number,
         typeStyle: String
     },
 
@@ -134,13 +81,19 @@ export default{
                     title:'Я соискатель',
                     sub_title: 'Меня заинтеросовала программа "Курс на север!", и я готов принять в ней участие',
                     color_title: '#2F5DA7',
-                    img_src: '../../assets/for_ankets/soiskatel.png'
+                    img_src: 'soiskatel.png',
+                    name: 'AnketaSoiskatelya',
+                    btn_title: 'Заполнить анкету соискателя',
+                    color_overlay: '#73C3F0'
                 },
                 {
                     title: 'Я работодатель',
                     sub_title: 'Я готов предоставить вакансии, чтобы помочь программе "Курс на север!"',
                     color_title: '#eb6635',
-                    img_src: '../../assets/for_ankets/employer.jpg'
+                    img_src: 'new_employer.jpg',
+                    name: 'AnketaEmployer',
+                    btn_title: 'Заполнить анкету работадателя',
+                    color_overlay: '#EAA379'
                 }
             ],
             text: 'Чтобы принять участие в проекте необходимо заполнить анкету.'
@@ -148,16 +101,15 @@ export default{
     },
 
     methods:{
-        go_to_anketa_anketa_soiskatelya(){
-            this.$router.push({name: "AnketaSoiskatelya"})
-        },
-        go_to_anketa_anketa_employer(){
-            this.$router.push({name: "AnketaEmployer"})
-        },
+
+        go_to_anketa(name){
+            this.$router.push({name: name})
+        }
     },
 
     setup(props){
         const mainColor = inject('mainColor')
+        const width = inject('width')
 
         const componentColor = {
             backgroundColor: 'white'
@@ -173,7 +125,11 @@ export default{
             textComponent.color = 'white'
         }
 
-        return { mainColor, componentColor, textComponent }
+        function get_image_URL(name){
+            return new URL(`../../assets/for_ankets/${name}`, import.meta.url).href
+        }
+
+        return { mainColor, componentColor, textComponent, width, get_image_URL }
     }
 }
 </script>

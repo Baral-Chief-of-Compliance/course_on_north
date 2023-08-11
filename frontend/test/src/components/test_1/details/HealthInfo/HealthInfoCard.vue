@@ -19,7 +19,7 @@
                 </v-img>
 
                 <v-card-text :style="{color: mainColor}" class="card_title">
-                    {{ title }}   
+                    <p style="line-height: 1;">{{ title }}</p>  
                 </v-card-text>
 
                 <v-card-actions>
@@ -35,7 +35,7 @@
 
         <v-card>
             <v-card-title class="card_title my-5" :style="{color: mainColor}">
-                {{ title }}
+                <p style="line-height: 1;">{{ title }}</p>
             </v-card-title>
             <v-card-text>
                 <v-img
@@ -89,7 +89,6 @@ export default{
         font-weight: 500;
         text-transform: uppercase;
         word-break: normal;
-        line-height: 1.2;
     }
 
     .btn_title{

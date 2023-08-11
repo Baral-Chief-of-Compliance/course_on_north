@@ -4,12 +4,12 @@
   
       <view-test />
 
-      <Footer />
+      <NewFooter />
     </v-app>
   </template>
   
   <script setup>
     import TestBar from './AppBar.vue'
     import ViewTest from './ViewTest.vue'
-    import Footer from './Footer.vue'
+    import NewFooter from './NewFooter.vue';
   </script>

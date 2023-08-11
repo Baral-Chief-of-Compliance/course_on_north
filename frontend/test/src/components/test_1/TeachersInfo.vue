@@ -5,9 +5,9 @@
             <TextForInfBlock :textContent="text" :textStyle="textComponent" />
 
             <v-row>
-                <v-col cols="3"></v-col>
+                <v-col v-if="width > 1280" cols="2"></v-col>
 
-                <v-col cols="6">
+                <v-col :cols="(width > 1280) ? 8 : 12">
                     <v-dialog
                         v-model="dialog"
                         width="auto"
@@ -27,7 +27,7 @@
                             </v-img>
 
                             <v-card-text :style="{color: addColor}" class="card_title">
-                                НОВЫЕ МЕРЫ ПОДДЕРЖКИ ПЕДАГОГИЧЕСКИХ РАБОТНИКОВ
+                                <p style="line-height: 1;">НОВЫЕ МЕРЫ ПОДДЕРЖКИ ПЕДАГОГИЧЕСКИХ РАБОТНИКОВ</p>
                             </v-card-text>
 
                             <v-card-actions>
@@ -40,7 +40,7 @@
 
                         <v-card>
                             <v-card-title class="card_title my-5" :style="{color: addColor}">
-                                НОВЫЕ МЕРЫ ПОДДЕРЖКИ ПЕДАГОГИЧЕСКИХ РАБОТНИКОВ
+                                <p style="line-height: 1;">НОВЫЕ МЕРЫ ПОДДЕРЖКИ ПЕДАГОГИЧЕСКИХ РАБОТНИКОВ</p>
                             </v-card-title>
 
                             <v-card-text>
@@ -89,7 +89,7 @@
                     </v-dialog>
                 </v-col>
 
-                <v-col cols="3"></v-col>
+                <v-col v-if="width > 1280" cols="2"></v-col>
             </v-row>
         </v-container>
     </div>
@@ -123,6 +123,8 @@ export default{
     setup(props){
         const mainColor = inject('mainColor')
         const addColor = inject('addColor')
+        const width = inject('width')
+        const height = inject('height')
 
         const componentColor = {
             backgroundColor: 'white'
@@ -138,7 +140,7 @@ export default{
             textComponent.color = 'white'
         }
 
-        return { mainColor, componentColor, textComponent, addColor }
+        return { mainColor, componentColor, textComponent, addColor, height, width }
     }
 }
 </script>

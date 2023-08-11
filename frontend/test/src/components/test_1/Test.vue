@@ -9,13 +9,10 @@
         />
     </div>
   </transition>
-  <carousel :width="width"/>
+  <carousel/>
   <about-project typeStyle="reverse" />
   <help-component />
   <video-info :width="width" typeStyle="reverse" />
-  <!-- 
-  <structure />
-  <clients-info /> -->
   <go-to-anketa-participant :width="width" />
 
   <health-worker-info typeStyle="reverse" />
