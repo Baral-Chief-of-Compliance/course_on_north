@@ -1,4 +1,5 @@
 <template>
+
         <v-carousel ref="carousel"
             cycle
             :height="height-80"
@@ -7,17 +8,28 @@
             show-arrows="hover"
             :color="mainColor"
         > 
+
             <v-carousel-item v-for="img in imgs">
-                <v-img  
-                    :src="get_image_URL(img.name)" 
-                    :height="height"
-                    :width="width"
-                    contain
-                    cover
-                />
+                    <v-parallax 
+                            :src="get_image_URL(img.name)" 
+                            :height="height"
+                            :width="width"
+                            contain
+                            cover
+                        >
+                            <div class="d-flex flex-column fill-height justify-center align-center text-white">
+                                <div class="title_carousel" :style="{fontSize: width * 0.1042 + 'px'}">
+                                    {{ img.title }}
+                                </div>
+                                <div :class="[ width > 1350 ? subtitle_carousel : subtitle_carousel_mobile]">
+                                    {{ img.subtitle }}
+                                </div>
+                            </div>
+                    </v-parallax>
             </v-carousel-item>
 
         </v-carousel>
+
 </template>
 
 
@@ -28,24 +40,34 @@ export default{
 
     data(){
         return {
-            one_img: 'logo.jpg',
             imgs: [
                 {
-                    name:'logo.jpg'
+                    name:'1_overlay.jpg',
+                    title: 'курс на север',
+                    subtitle: 'Товарищи! сложившаяся структура организации играет важную роль в формировании новых предложений.'
                 },
                 {
-                    name:'murmansr_atumn.jpg'
+                    name:'2_overlay.jpg',
+                    title: 'курс на север',
+                    subtitle: 'Товарищи! сложившаяся структура организации играет важную роль в формировании новых предложений.'
                 },
                 {
-                    name:'night_murmansk_2.jpg'
+                    name:'3_overlay.jpg',
+                    title: 'курс на север',
+                    subtitle: 'Товарищи! сложившаяся структура организации играет важную роль в формировании новых предложений.'
                 },
                 {
-                    name:'night_murmansk.jpg'
+                    name:'4_overlay.jpg',
+                    title: 'курс на север',
+                    subtitle: 'Товарищи! сложившаяся структура организации играет важную роль в формировании новых предложений.'
                 },
                 {
-                    name:'na_severe_live.jpg'
+                    name:'5_overlay.jpg',
+                    title: 'на севере - жить!',
+                    subtitle: 'Товарищи! сложившаяся структура организации играет важную роль в формировании новых предложений.'
                 }
-            ]
+            ],
+            overlay: false
         }
     },
 
@@ -63,3 +85,24 @@ export default{
 
 }
 </script>
+
+
+<style>
+
+.title_carousel{
+    font-size: 200px;
+    font-family: "CorkiRegular";
+    text-transform: uppercase;
+}
+
+.subtitle_carousel{
+    font-size: 20px;
+    font-family: "MontserratMedium";
+}
+
+.subtitle_carousel_mobile{
+    font-size: 14px;
+    font-family: "MontserratMedium";
+    text-align: center;
+}
+</style>
