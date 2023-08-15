@@ -37,6 +37,7 @@
         v-model="drawer"
         location="top"
         color="#eb6635"
+        :width="360"
         temporary
         v-if="width <= 1555"
       >

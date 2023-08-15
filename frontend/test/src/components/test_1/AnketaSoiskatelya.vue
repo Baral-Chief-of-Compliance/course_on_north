@@ -2,105 +2,55 @@
     <v-container>
         <button-back label="на главную" @my-event="go_back" />
 
-        <div class="text-h3">Анкета соискателя</div>
-        <div class="text-h5 mt-5">Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны.</div>
+        <anket-title title="Анкета соискателя" />
+
+        <!-- <title-components title="Анкета соискателя" />
+        <text-for-inf-block 
+            textContent="Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны."
+        /> -->
 
         <v-container>
-            <v-text-field color="#2F5DA7" label="Фамилия" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Имя" variant="solo-filled"></v-text-field>
+            <text-field-component title="Фамилия" />
+            <text-field-component title="Имя" />
             <v-checkbox color="#2F5DA7" label="Отчество отсутствует" value="Hiden" v-model="selected"></v-checkbox>
-            <v-text-field v-if="'Hiden' != selected[0]" color="#2F5DA7" label="Отчество" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Возраст" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Электронный адрес" variant="solo-filled"></v-text-field>
+            <text-field-component v-if="'Hiden' != selected[0]"  title="Отчество" />
+            <text-field-component title="Возраст" />
+            <text-field-component title="Электронный" />
 
          
-            <v-textarea
-                @click="dialogAddress = true"
-                label="Почтовый адрес"
-                color="#2F5DA7"
-                variant="solo-filled"
-            >
-            </v-textarea>
-
-            
+            <text-area-component title="Почтовый адрес" @click="dialogAddress = true" />
             <v-dialog
-            v-model="dialogAddress"
-            width="auto"
-            
+                v-model="dialogAddress"
+                width="auto"
             >
-            <v-card width="700px">
-                <v-card-title>
-                    Почтовый адрес
-                </v-card-title>
-                <v-card-text>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Страна"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Субъект РФ" :items="subjects_RF"></v-combobox>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Район, город, населённый пункт"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Если не нашли населённый пункт в справочнике, введите здесь"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Улица"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Если не нашли улицу в справочнике, введите здесь"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Здание/Сооружение"></v-combobox>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Квартира/Офис/Помещение"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Индекс"></v-text-field>
-                    <v-textarea variant="solo-filled" color="#2F5DA7" label="Дополнительная информация"></v-textarea>
-                </v-card-text>
-                <v-card-actions>
-                    <v-btn variant="elevated" color="success" @click="dialogAddress = false">Сохранить</v-btn>
-                    <v-spacer></v-spacer>
-                    <v-btn variant="elevated" color="error" @click="dialogAddress = false">Закрыть</v-btn>
-                </v-card-actions>
-            </v-card>
+                <address-card title="Почтовый адрес" />
             </v-dialog>
 
-            <v-textarea
-                @click="dialogRegister = true"
-                label="Адрес регистрации"
-                color="#2F5DA7"
-                variant="solo-filled"
-            >
-            </v-textarea>
 
-            
+            <text-area-component title="Адрес регистрации" @click="dialogRegister = true" />
             <v-dialog
             v-model="dialogRegister"
             width="auto"
             >
-            <v-card width="700px">
-                <v-card-title>
-                    Адрес регистрации
-                </v-card-title>
-                <v-card-text>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Страна"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Субъект РФ" :items="subjects_RF"></v-combobox>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Район, город, населённый пункт"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Если не нашли населённый пункт в справочнике, введите здесь"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Улица"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Если не нашли улицу в справочнике, введите здесь"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Здание/Сооружение"></v-combobox>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Квартира/Офис/Помещение"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Индекс"></v-text-field>
-                    <v-textarea variant="solo-filled" color="#2F5DA7" label="Дополнительная информация"></v-textarea>
-                </v-card-text>
-                <v-card-actions>
-                    <v-btn variant="elevated" color="success" @click="dialogRegister = false">Сохранить</v-btn>
-                    <v-spacer></v-spacer>
-                    <v-btn variant="elevated" color="error" @click="dialogRegister = false">Закрыть</v-btn>
-                </v-card-actions>
-            </v-card>
+                <address-card title="Адрес регистрации" />
             </v-dialog>
 
-            <v-text-field color="#2F5DA7" label="Номер телефона" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Желаемая профессия" variant="solo-filled"></v-text-field>
-            <v-combobox color="#2F5DA7" label="Семейное положение" variant="solo-filled" :items="['не замужем', 'замужем', 'холост', 'женат']"></v-combobox>
-            <v-combobox color="#2F5DA7" label="Дети" variant="solo-filled" :items="['есть', 'нет']"></v-combobox>
-            <v-combobox color="#2F5DA7" label="Образование" variant="solo-filled" :items="['среднее', 'среднее профессиональное', 'высшее, высшее - бакалавриат', 'высшее - магистратура']"></v-combobox>
-            <v-text-field color="#2F5DA7" label="Наименование учебного заведения" variant="solo-filled"></v-text-field>
-            <v-combobox color="#2F5DA7" label="Возможность переезда в Мурманскую область" variant="solo-filled" :items="['да', 'нет']"></v-combobox>
-            <v-combobox color="#2F5DA7" label="Необходимость жилья" variant="solo-filled" :items="['да', 'нет']"></v-combobox>
-            <v-text-field color="#2F5DA7" label="Желаемый уровень заработной платы" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Общий стаж" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Должность на последнем месте работы" variant="solo-filled"></v-text-field>
-            <v-text-field color="#2F5DA7" label="Дополнительная информация" variant="solo-filled"></v-text-field>
+            <text-field-component title="Номер телефона" />
+            <text-field-component title="Желаемая профессия" />
+
+            <combobox-component title="Семейное положение" :items="['не замужем', 'замужем', 'холост', 'женат']" />
+            <combobox-component title="Дети" :items="['есть', 'нет']" />
+            <combobox-component title="Образование" :items="['среднее', 'среднее профессиональное', 'высшее, высшее - бакалавриат', 'высшее - магистратура']" />
+
+            <text-field-component title="Наименование учебного заведения" />
+            <combobox-component title="Возможность переезда в Мурманскую область" :items="['да', 'нет']" />
+            <combobox-component title="Необходимость жилья" :items="['да', 'нет']" />
+
+
+            <text-field-component title="Желаемый уровень заработной платы" />
+            <text-field-component title="Общий стаж" />
+            <text-field-component title="Должность на последнем месте работы" />
+            <text-field-component title="Дополнительная информация" />
 
             <v-alert type="info" title="Предупреждение" variant="tonal">
                 Настоящим подтверждаю, что являюсь гражданином, обратившимся в рамках реализации проекта «Курс на Север» и прошу оказать содействие в поиске подходящей работы в рамках Постановления Правительства Мурманской области от 28.04.2023 г. № 329-ПП “О службе сопровождения “Курс на Север”
@@ -123,13 +73,23 @@
 </template>
 
 <script>
-import ButtonBack from './../../components/test_1/details/ButtonBack.vue'
+import ButtonBack from './../../components/test_1/details/ButtonBack.vue';
+import TextFieldComponent from '@/components/test_1/details/ankets/TextFieldComponent.vue';
+import AddressCard from './details/ankets/AddressCard.vue';
+import ComboboxComponent from './details/ankets/ComboboxComponent.vue';
+import TextAreaComponent from './details/ankets/TextAreaComponent.vue';
+import AnketTitle from './details/ankets/AnketTitle.vue';
 
 
 export default{
 
     components: {
-        ButtonBack
+        ButtonBack,
+        TextFieldComponent,
+        AddressCard,
+        ComboboxComponent,
+        TextAreaComponent,
+        AnketTitle
     },
     data(){
         return{
