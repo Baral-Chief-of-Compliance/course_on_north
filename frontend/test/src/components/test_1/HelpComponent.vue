@@ -1,7 +1,7 @@
 <template>
     <div id="help" :style="componentColor">
         <v-container class="py-10">
-            <TitleComponent  :typeStyle="typeStyle" title="помощь" />
+            <TitleComponent  :typeStyle="typeStyle" title="чем мы можем помочь?" />
             <TextForInfBlock :textContent="text_1" :textStyle="textComponent" />
             <TextForInfBlock :textContent="text_2" :textStyle="textComponent" />
         </v-container>

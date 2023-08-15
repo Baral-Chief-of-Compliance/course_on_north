@@ -11,8 +11,9 @@
                             class="mx-auto"
                             @click="go_to_anketa(anket.name)"
                             v-bind="props"
+                            max-width="600"
                         >
-                            <v-img :src="get_image_URL(anket.img_src)" ></v-img>
+                            <v-img :src="get_image_URL(anket.img_src)" cover height="300px"></v-img>
 
                             <v-card-text>
                                 <div class="mb-10" :style="{fontSize: 50 + 'px', color: anket.color_title, fontFamily: 'CorkiRegular'}">
@@ -44,6 +45,7 @@
 
     </div>
 </template>
+
 
 <style scoped>
 
@@ -110,6 +112,7 @@ export default{
     setup(props){
         const mainColor = inject('mainColor')
         const width = inject('width')
+        const height = inject('height')
 
         const componentColor = {
             backgroundColor: 'white'
@@ -129,7 +132,7 @@ export default{
             return new URL(`../../assets/for_ankets/${name}`, import.meta.url).href
         }
 
-        return { mainColor, componentColor, textComponent, width, get_image_URL }
+        return { mainColor, componentColor, textComponent, width, get_image_URL, height }
     }
 }
 </script>

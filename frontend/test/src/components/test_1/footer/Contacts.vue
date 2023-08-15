@@ -6,13 +6,13 @@
 
     <v-row class="d-flex justify-start">
         <v-icon class="mt-2" color="white" icon="mdi-email"></v-icon> 
-        <a href="mailto:@KursNaSever.ru" class="ml-3 vk" >@KursNaSever</a>
+        <a href="mailto:KursNaSever@murman-zan.ru>" class="ml-3 vk" >KursNaSever@murman-zan.ru</a>
     </v-row>
 
-    <v-row class="d-flex justify-start">
+    <!-- <v-row class="d-flex justify-start">
         <v-icon class="mt-2" color="white" icon="mdi-email"></v-icon>
          <a href="mailto:@murman_zan.ru" class="ml-3 mail" >@czn_murman</a>
-    </v-row>
+    </v-row> -->
 
     <v-row class="d-flex justify-start">
         <v-img  class="mt-1" src="@/assets/logo/vk_white_2.svg" max-width="23"></v-img> 
@@ -22,7 +22,7 @@
     <v-row class="d-flex justify-start rights">
         Мурманская область.<br>
         ГОБУ Центр занятости населения<br>
-        г.Мурманска.<br>
+        Мурманской области<br>
         Улица Книповича 48
     </v-row>
     

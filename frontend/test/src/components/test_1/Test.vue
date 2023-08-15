@@ -141,8 +141,8 @@ export default{
   background: #194996;
   color: white;
   position: fixed;
-  margin-top: 78vh;
-  margin-left: 2vw;
+  margin-top: 72vh;
+  margin-left: 5vw;
   z-index: 1000;
 }
 

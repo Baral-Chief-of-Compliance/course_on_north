@@ -7,13 +7,14 @@
             <v-card 
                 v-bind="props"
                 @click=""
+                max-width="600"
+                class="mx-auto"
             >
 
                 <v-img 
                     :src="imageUrl"
+                    height="320px"
                     contain
-                    width="100%"
-                    cover
                 >
 
                 </v-img>
@@ -34,13 +35,14 @@
 
 
         <v-card>
-            <v-card-title class="card_title my-5" :style="{color: mainColor}">
+            <div :class="[width > 800 ? 'card_title my-5 text-center' : 'card_title_mobile my-5 text-center' ]" :style="{color: mainColor}">
                 <p style="line-height: 1;">{{ title }}</p>
-            </v-card-title>
+            </div>
             <v-card-text>
                 <v-img
                     :src="imageUrl"
                     width="1300"
+                    contain
                 >    
                 </v-img>
             </v-card-text>
@@ -72,8 +74,9 @@ export default{
     setup(props){
         const mainColor = inject('mainColor')
         const imageUrl = new URL(`../../../../assets/health_worker/${props.path}`, import.meta.url).href
+        const width = inject('width')
 
-        return { mainColor, imageUrl  }
+        return { mainColor, imageUrl, width  }
     }
 
 }
@@ -86,6 +89,16 @@ export default{
         margin-right: auto;
         font-family: "CorkiRegular";
         font-size: 28px;
+        font-weight: 500;
+        text-transform: uppercase;
+        word-break: normal;
+    }
+
+    .card_title_mobile{
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "CorkiRegular";
+        font-size: 16px;
         font-weight: 500;
         text-transform: uppercase;
         word-break: normal;

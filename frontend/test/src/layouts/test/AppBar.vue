@@ -5,7 +5,7 @@
             max-width="115"
             width="100%"
             src="../../assets/logo/logo-for-header-on-gray.svg"
-            @click="go_to_main"
+            @click="go_to_menu_punkt('carousel')"
             class="logo"
         />
 
@@ -110,7 +110,7 @@ export default{
         go_to_other_punkt(refName){
             set_part_of_navbar(refName)
             this.$router.push({name: refName})
-        }
+        },
     }
 }
 </script>

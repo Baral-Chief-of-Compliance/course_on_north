@@ -16,6 +16,8 @@
                             <v-card 
                                 v-bind="props"
                                 @click=""
+                                max-width="600"
+                                class="mx-auto"
                             >
                             <v-img 
                                     src="@/assets/teachers/1.jpg"
@@ -39,9 +41,9 @@
                         </template>
 
                         <v-card>
-                            <v-card-title class="card_title my-5" :style="{color: addColor}">
+                            <div :class="[width > 800 ? 'card_title my-5 text-center' : 'card_title_mobile my-5 text-center' ]" :style="{color: addColor}">
                                 <p style="line-height: 1;">НОВЫЕ МЕРЫ ПОДДЕРЖКИ ПЕДАГОГИЧЕСКИХ РАБОТНИКОВ</p>
-                            </v-card-title>
+                            </div>
 
                             <v-card-text>
                                 <v-img

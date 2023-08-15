@@ -7,7 +7,7 @@
             <v-row v-for="(card, index) in cards_info" >
                 <v-col v-if="width > 1280" :cols="index === 3 ? 3:1"></v-col>
 
-                <v-col :cols="( width > 1280) ? 5: 12" v-for="inf in card">
+                <v-col :cols="index === 3 ? (( width > 1280) ? 6: 12)  : (( width > 1280) ? 5: 12)" v-for="inf in card">
                     <HealthInfoCard 
                         :title="inf.title"
                         :path="inf.path"

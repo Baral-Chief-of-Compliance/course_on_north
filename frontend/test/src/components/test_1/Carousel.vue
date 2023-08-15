@@ -1,6 +1,6 @@
 <template>
 
-        <v-carousel ref="carousel"
+        <v-carousel id="carousel" ref="carousel"
             cycle
             :height="height-80"
             :width="width"
@@ -17,14 +17,39 @@
                             contain
                             cover
                         >
-                            <div class="d-flex flex-column fill-height justify-center align-center text-white">
+                        <v-row class="mt-15 mx-15">
+                            <v-col cols="2">
+                                <v-img
+                                    src="@/assets/gerb/gerb_murmansk_line.svg"
+                                    :max-height="150/900 * height"
+                                    :max-width="150/1900 * width"
+                                    contain
+                                >    
+                                </v-img>
+                            </v-col>
+
+                            <v-col cols="8">
+
+                            </v-col>
+
+                            <v-col cols="2">
+                                <div class="heshtag_title" :style="{ fontSize: 50/1920 * width + 'px'}">
+                                    #насевережить
+                                </div>
+                            </v-col>
+                        </v-row>
+
+                            <div class="d-flex flex-column fill-height align-center text-white">
                                 <div class="title_carousel" :style="{fontSize: width * 0.1042 + 'px'}">
                                     {{ img.title }}
                                 </div>
-                                <div :class="[ width > 1350 ? subtitle_carousel : subtitle_carousel_mobile]">
+                                <div :class="[ width > 1350 ? 'subtitle_carousel mx-15 text-center':  (width > 500) ? 'subtitle_carousel_mobile mx-15 text-center' :  'subtitle_carousel_mega_small mx-15 text-center' ]">
                                     {{ img.subtitle }}
                                 </div>
+                                
                             </div>
+
+                            
                     </v-parallax>
             </v-carousel-item>
 
@@ -32,6 +57,7 @@
 
 </template>
 
+"
 
 <script>
 import { inject } from 'vue';
@@ -98,6 +124,7 @@ export default{
 .subtitle_carousel{
     font-size: 20px;
     font-family: "MontserratMedium";
+    text-align: center;
 }
 
 .subtitle_carousel_mobile{
@@ -105,4 +132,18 @@ export default{
     font-family: "MontserratMedium";
     text-align: center;
 }
+
+
+.subtitle_carousel_mega_small{
+    font-size: 12px;
+    font-family: "MontserratMedium";
+    text-align: center;
+}
+
+.heshtag_title{
+    font-family: "CorkiRegular";
+    color: white;
+    text-transform: uppercase;
+}
+
 </style>
