@@ -22,8 +22,7 @@
                             <v-img 
                                     src="@/assets/teachers/1.jpg"
                                     contain
-                                    width="100%"
-                                    cover
+                                    height="500px"
                                 >
 
                             </v-img>

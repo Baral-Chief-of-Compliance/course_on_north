@@ -48,7 +48,6 @@
                                 </div>
                                 
                             </div>
-
                             
                     </v-parallax>
             </v-carousel-item>
@@ -103,7 +102,7 @@ export default{
         const mainColor = inject('mainColor')
 
         function get_image_URL(name){
-            return new URL(`../../assets/jpg_for_carousel/${name}`, import.meta.url).href
+            return new URL(`../../assets/jpg_for_carousel/compression/${name}`, import.meta.url).href
         }
 
         return { width, height, mainColor, get_image_URL}

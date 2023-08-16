@@ -4,6 +4,10 @@
 
         <anket-title title="Анкета соискателя" />
 
+        <anket-text 
+            text="Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны."
+        />
+
         <!-- <title-components title="Анкета соискателя" />
         <text-for-inf-block 
             textContent="Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны."
@@ -79,6 +83,7 @@ import AddressCard from './details/ankets/AddressCard.vue';
 import ComboboxComponent from './details/ankets/ComboboxComponent.vue';
 import TextAreaComponent from './details/ankets/TextAreaComponent.vue';
 import AnketTitle from './details/ankets/AnketTitle.vue';
+import AnketText from './details/ankets/AnketText.vue';
 
 
 export default{
@@ -89,7 +94,8 @@ export default{
         AddressCard,
         ComboboxComponent,
         TextAreaComponent,
-        AnketTitle
+        AnketTitle,
+        AnketText
     },
     data(){
         return{
