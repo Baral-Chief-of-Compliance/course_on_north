@@ -3,47 +3,20 @@
 
         <button-back label="на главную" @my-event="go_back" />
 
-        <div class="text-h3">Анкета работодателя</div>
-        <div class="text-h5 mt-5">Заполните анкету работодателя.</div>
+        <anket-title title="Анкета работодателя" />
+        <anket-text 
+            text="Заполните анкету работодателя."
+        />
 
         <v-container>
-            <v-text-field color="#2F5DA7" label="Полное наименование" variant="solo-filled"></v-text-field>
-            <v-textarea
-                @click="dialogEntityAddress = true"
-                label="Юридический адрес"
-                color="#2F5DA7"
-                variant="solo-filled"
-            >
-            </v-textarea>
-
+            <text-field-component title="Полное наименование" />
+            <text-area-component title="Юридический адрес" @click="dialogEntityAddress = true" />
             
             <v-dialog
-            v-model="dialogEntityAddress"
-            width="auto"
-            
+                v-model="dialogEntityAddress"
+                width="auto" 
             >
-            <v-card width="700px">
-                <v-card-title>
-                    Юридический адрес
-                </v-card-title>
-                <v-card-text>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Страна"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Субъект РФ" :items="subjects_RF"></v-combobox>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Район, город, населённый пункт"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Если не нашли населённый пункт в справочнике, введите здесь"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Улица"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Если не нашли улицу в справочнике, введите здесь"></v-text-field>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Здание/Сооружение"></v-combobox>
-                    <v-combobox variant="solo-filled" color="#2F5DA7" label="Квартира/Офис/Помещение"></v-combobox>
-                    <v-text-field variant="solo-filled" color="#2F5DA7" label="Индекс"></v-text-field>
-                    <v-textarea variant="solo-filled" color="#2F5DA7" label="Дополнительная информация"></v-textarea>
-                </v-card-text>
-                <v-card-actions>
-                    <v-btn variant="elevated" color="success" @click="dialogEntityAddress = false">Сохранить</v-btn>
-                    <v-spacer></v-spacer>
-                    <v-btn variant="elevated" color="error" @click="dialogEntityAddress = false">Закрыть</v-btn>
-                </v-card-actions>
-            </v-card>
+                <address-card title="Юридический адрес" />
             </v-dialog>
 
             <v-btn color="success" @click="dialogSendVacancies = true" block>Прикрепить вакансии</v-btn>
@@ -83,9 +56,11 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
-            <v-text-field class="mt-5" variant="solo-filled" color="#2F5DA7" label="ФИО контактного лица"></v-text-field>
-            <v-text-field variant="solo-filled" color="#2F5DA7" label="Номер телефона"></v-text-field>
-            <v-text-field variant="solo-filled" color="#2F5DA7" label="Электронная почта"></v-text-field>
+
+            <text-field-component title="ФИО контактного лица" />
+            <text-field-component title="Номер телефона" />
+            <text-field-component title="Электронная почта" />
+            
             <v-file-input color="#2F5DA7" variant="solo-filled" label="Карточка предприятия"></v-file-input>
 
             <v-btn @click="send_anketa()" id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
@@ -96,15 +71,29 @@
 </template>
 
 <script>
-import axios from 'axios'
-import ButtonBack from './../../components/test_1/details/ButtonBack.vue'
+import axios from 'axios';
+import ButtonBack from './../../components/test_1/details/ButtonBack.vue';
+import TextFieldComponent from './details/ankets/TextFieldComponent.vue';
+import TextAreaComponent from './details/ankets/TextAreaComponent.vue';
+import AnketTitle from './details/ankets/AnketTitle.vue';
+import AnketText from './details/ankets/AnketText.vue';
+import ComboboxComponent from './details/ankets/ComboboxComponent.vue';
+import AlertComponent from './details/ankets/AlertComponent.vue';
+import AddressCard from './details/ankets/AddressCard.vue';
 
 
 export default{
 
 
     components:{
-        ButtonBack
+        ButtonBack,
+        TextFieldComponent,
+        TextAreaComponent,
+        AnketTitle,
+        AnketText,
+        ComboboxComponent,
+        AlertComponent,
+        AddressCard
     },
 
     data(){

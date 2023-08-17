@@ -8,33 +8,27 @@
             text="Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны."
         />
 
-        <!-- <title-components title="Анкета соискателя" />
-        <text-for-inf-block 
-            textContent="Заполните анкету соискателя, указав, какая сфера деятельности, должность и профессия вам интересны."
-        /> -->
-
         <v-container>
-            <text-field-component title="Фамилия" />
-            <text-field-component title="Имя" />
-            <v-checkbox color="#2F5DA7" label="Отчество отсутствует" value="Hiden" v-model="selected"></v-checkbox>
-            <text-field-component v-if="'Hiden' != selected[0]"  title="Отчество" />
-            <text-field-component title="Возраст" />
-            <text-field-component title="Электронный" />
+            <text-field-component title="Фамилия" v-model="surname"/>
+            <text-field-component title="Имя" v-model="name" />
+            <CheckBoxComonent :color="mainColor" title="Отчество отсутствует" v-model="selected" />
+            <text-field-component v-if="selected"  title="Отчество" v-model="patronymic" />
+            <text-field-component title="Возраст" type="number" v-model="age" />
+            <text-field-component title="Электронный адрес" v-model="email"  />
 
-         
             <text-area-component title="Почтовый адрес" @click="dialogAddress = true" />
             <v-dialog
                 v-model="dialogAddress"
                 width="auto"
             >
-                <address-card title="Почтовый адрес" />
+                <address-card title="Почтовый адрес" v-model="mail" />
             </v-dialog>
 
 
             <text-area-component title="Адрес регистрации" @click="dialogRegister = true" />
             <v-dialog
-            v-model="dialogRegister"
-            width="auto"
+                v-model="dialogRegister"
+                width="auto"
             >
                 <address-card title="Адрес регистрации" />
             </v-dialog>
@@ -55,21 +49,30 @@
             <text-field-component title="Общий стаж" />
             <text-field-component title="Должность на последнем месте работы" />
             <text-field-component title="Дополнительная информация" />
-
-            <v-alert type="info" title="Предупреждение" variant="tonal">
-                Настоящим подтверждаю, что являюсь гражданином, обратившимся в рамках реализации проекта «Курс на Север» и прошу оказать содействие в поиске подходящей работы в рамках Постановления Правительства Мурманской области от 28.04.2023 г. № 329-ПП “О службе сопровождения “Курс на Север”
-                <v-checkbox label="Подтверждаю"></v-checkbox>
-            </v-alert>
+            
+            <alert-component
+                title="Предупреждение" 
+                text="Настоящим подтверждаю, что являюсь гражданином, обратившимся в рамках реализации проекта «Курс на Север» и прошу оказать содействие в поиске подходящей работы в рамках Постановления Правительства Мурманской области от 28.04.2023 г. № 329-ПП “О службе сопровождения “Курс на Север”"
+                type="info"
+                checkbox-label="Подтверждаю"
+            />
 
             <v-file-input color="#2F5DA7" variant="solo-filled" class="mt-5" label="Прикрепить резюме"></v-file-input>
+            
+            <alert-component
+                title="Согласие на обработку персональных данных"
+                text="Я подтверждаю свое согласие на обработку персональных данных. Я проинформирован о том, что направление данного обращения в государственный орган, орган местного самоуправления или должностному лицу, в компетенцию которых входит решение поставленных в обращении вопросов, не является разглашением сведений, содержащихся в обращении."
+                type="warning"
+                checkbox-label="Подтверждаю"
+            />
 
-            <v-alert class="mb-5" type="warning" title="Согласие на обработку персональных данных">
-                Я подтверждаю свое согласие на обработку персональных данных. Я проинформирован о том, что направление данного обращения в государственный орган, орган местного самоуправления или должностному лицу, в компетенцию которых входит решение поставленных в обращении вопросов, не является разглашением сведений, содержащихся в обращении.
-                <v-checkbox label="Подтверждаю"></v-checkbox>
-            </v-alert>
 
-
-            <v-btn @click="send_anketa()" id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
+            <button-anket 
+                title="Отправить анкету" 
+                color-text="white" 
+                :color="mainColor"
+                @btn-funk="send_anketa"
+            />
 
         </v-container>
         
@@ -84,6 +87,10 @@ import ComboboxComponent from './details/ankets/ComboboxComponent.vue';
 import TextAreaComponent from './details/ankets/TextAreaComponent.vue';
 import AnketTitle from './details/ankets/AnketTitle.vue';
 import AnketText from './details/ankets/AnketText.vue';
+import AlertComponent from './details/ankets/AlertComponent.vue';
+import ButtonAnket from './details/ankets/ButtonAnket.vue';
+import CheckBoxComonent from './details/ankets/CheckBoxComonent.vue';
+import { inject, ref } from 'vue';
 
 
 export default{
@@ -95,11 +102,44 @@ export default{
         ComboboxComponent,
         TextAreaComponent,
         AnketTitle,
-        AnketText
+        AnketText,
+        AlertComponent,
+        ButtonAnket,
+        CheckBoxComonent
     },
+
+    setup(){
+        const mainColor = inject('mainColor')
+        let surname = ref("")
+        let name = ref("")
+        let patronymic = ref("")
+        let age = ref("")
+        let email = ref("")
+        const mail = ref({
+            country: "",
+            subjectRF: "",
+            town: "",
+            street: "",
+            building: "",
+            apartment: "",
+            index: "",
+            additionalInfo: ""
+        })
+
+        return { 
+                    mainColor, 
+                    surname, 
+                    name,
+                    patronymic,
+                    age,
+                    email,
+                    mail
+                }
+    },
+
     data(){
         return{
-            selected: [],
+            selected: false,
             dialogAddress: false,
             dialogRegister: false,
             subjects_RF: ['Республика Адыгея (Адыгея)', 'Республика Алтай', 'Республика Башкортостан', 'Республика Бурятия', 'Республика Дагестан', 'Республика Ингушетия', 'Кабардино-Балкарская Республика', 'Республика Калмыкия', 'Карачаево-Черкесская Республика', 'Республика Карелия', 'Республика Коми', 'Республика Крым', 'Республика Марий Эл', 'Республика Мордовия', 'Республика Саха (Якутия)', 'Республика Северная Осетия – Алания', 'Республика Татарстан (Татарстан)', 'Республика Тыва', 'Удмуртская Республика', 'Республика Хакасия', 'Чеченская Республика', 'Чувашская Республика – Чувашия', 'Алтайский край', 'Забайкальский край', 'Камчатский край', 'Краснодарский край', 'Красноярский край', 'Пермский край', 'Приморский край', 'Ставропольский край', 'Хабаровский край', 'Амурская область', 'Архангельская область', 'Астраханская область', 'Белгородская область', 'Брянская область', 'Владимирская область', 'Волгоградская область', 'Вологодская область', 'Воронежская область', 'Ивановская область', 'Иркутская область', 'Калининградская область', 'Калужская область', 'Кемеровская область', 'Кировская область', 'Костромская область', 'Курганская область', 'Курская область', 'Ленинградская область', 'Липецкая область', 'Магаданская область', 'Московская область', 'Мурманская область', 'Нижегородская область', 'Новгородская область', 'Новосибирская область', 'Омская область', 'Оренбургская область', 'Орловская область', 'Пензенская область', 'Псковская область', 'Ростовская область', 'Рязанская область', 'Самарская область', 'Саратовская область', 'Сахалинская область', 'Свердловская область', 'Смоленская область', 'Тамбовская область', 'Тверская область', 'Томская область', 'Тульская область', 'Тюменская область', 'Ульяновская область', 'Челябинская область', 'Ярославская область', 'Город Москва', 'Город Санкт-Петербург', 'Город Севастополь', 'Еврейская автономная область', 'Ненецкий автономный округ', 'Ханты-Мансийский автономный округ – Югра', 'Чукотский автономный округ', 'Ямало-Ненецкий автономный окр']
