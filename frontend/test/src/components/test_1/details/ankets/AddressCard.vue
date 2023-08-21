@@ -45,7 +45,7 @@
                 title="Индекс" 
                 v-model="modelValue.index"
             />
-
+ 
             <TextAreaComponent 
                 title="Дополнительная информация"
                 v-model="modelValue.additionalInfo"
