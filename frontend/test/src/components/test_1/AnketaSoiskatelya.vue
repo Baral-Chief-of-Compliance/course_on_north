@@ -33,39 +33,41 @@
                 <address-card title="Адрес регистрации" />
             </v-dialog>
 
-            <text-field-component title="Номер телефона" />
-            <text-field-component title="Желаемая профессия" />
+            <text-field-component v-model="mobilePhone" title="Номер телефона" />
+            <text-field-component v-model="dreamJob" title="Желаемая профессия" />
 
-            <combobox-component title="Семейное положение" :items="['не замужем', 'замужем', 'холост', 'женат']" />
-            <combobox-component title="Дети" :items="['есть', 'нет']" />
-            <combobox-component title="Образование" :items="['среднее', 'среднее профессиональное', 'высшее, высшее - бакалавриат', 'высшее - магистратура']" />
+            <combobox-component v-model="family" title="Семейное положение" :items="['не замужем', 'замужем', 'холост', 'женат']" />
+            <combobox-component v-model="childrens" title="Дети" :items="['есть', 'нет']" />
+            <combobox-component v-model="education" title="Образование" :items="['среднее', 'среднее профессиональное', 'высшее, высшее - бакалавриат', 'высшее - магистратура']" />
 
-            <text-field-component title="Наименование учебного заведения" />
-            <combobox-component title="Возможность переезда в Мурманскую область" :items="['да', 'нет']" />
-            <combobox-component title="Необходимость жилья" :items="['да', 'нет']" />
+            <text-field-component v-model="nameInstitution" title="Наименование учебного заведения" />
+            <combobox-component v-model="possibilityOfRelocation" title="Возможность переезда в Мурманскую область" :items="['да', 'нет']" />
+            <combobox-component v-model="needForHousing" title="Необходимость жилья" :items="['да', 'нет']" />
 
 
-            <text-field-component title="Желаемый уровень заработной платы" />
-            <text-field-component title="Общий стаж" />
-            <text-field-component title="Должность на последнем месте работы" />
-            <text-field-component title="Дополнительная информация" />
+            <text-field-component v-model="desiredSalaryLevel" title="Желаемый уровень заработной платы" />
+            <text-field-component v-model="generalExperience" title="Общий стаж" />
+            <text-field-component v-model="positionAtLastJob" title="Должность на последнем месте работы" />
+            <text-field-component v-model="additionalInf" title="Дополнительная информация" />
             
             <alert-component
+                v-model="chekboxConfrimationProgramm"
                 title="Предупреждение" 
                 text="Настоящим подтверждаю, что являюсь гражданином, обратившимся в рамках реализации проекта «Курс на Север» и прошу оказать содействие в поиске подходящей работы в рамках Постановления Правительства Мурманской области от 28.04.2023 г. № 329-ПП “О службе сопровождения “Курс на Север”"
                 type="info"
                 checkbox-label="Подтверждаю"
             />
 
+
             <v-file-input color="#2F5DA7" variant="solo-filled" class="mt-5" label="Прикрепить резюме"></v-file-input>
             
             <alert-component
+                v-model="chekboxConfrimationPD"
                 title="Согласие на обработку персональных данных"
                 text="Я подтверждаю свое согласие на обработку персональных данных. Я проинформирован о том, что направление данного обращения в государственный орган, орган местного самоуправления или должностному лицу, в компетенцию которых входит решение поставленных в обращении вопросов, не является разглашением сведений, содержащихся в обращении."
                 type="warning"
                 checkbox-label="Подтверждаю"
             />
-
 
             <button-anket 
                 title="Отправить анкету" 
@@ -126,6 +128,21 @@ export default{
             additionalInfo: ""
         })
 
+        let mobilePhone = ref("")
+        let dreamJob = ref("")
+        let family = ref(null)
+        let childrens = ref(null)
+        let education = ref(null)
+        let nameInstitution = ref("")
+        let possibilityOfRelocation = ref(null)
+        let needForHousing = ref(null)
+        let desiredSalaryLevel = ref("")
+        let generalExperience = ref("")
+        let positionAtLastJob = ref("")
+        let additionalInf = ref("")
+        let chekboxConfrimationProgramm = ref(false)
+        let chekboxConfrimationPD = ref(false)
+
         return { 
                     mainColor, 
                     surname, 
@@ -133,7 +150,21 @@ export default{
                     patronymic,
                     age,
                     email,
-                    mail
+                    mail,
+                    mobilePhone,
+                    dreamJob,
+                    family,
+                    childrens,
+                    education,
+                    nameInstitution,
+                    possibilityOfRelocation,
+                    needForHousing,
+                    desiredSalaryLevel,
+                    generalExperience,
+                    positionAtLastJob,
+                    additionalInf,
+                    chekboxConfrimationProgramm,
+                    chekboxConfrimationPD
                 }
     },
 

@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { inject, defineProps, ref } from 'vue';
+import { inject, defineProps, ref, defineEmits, computed } from 'vue';
 import CheckBoxComonent from './CheckBoxComonent.vue';
 
 
@@ -34,10 +34,25 @@ const props = defineProps({
     title: String,
     text: String,
     type: String,
-    checkboxLabel: String
+    checkboxLabel: String,
+
+    modelValue: {
+        required: true,
+        type: Boolean
+    }
 });
 
-const checkboxValue = ref(false)
+const emit = defineEmits(['update:modelValue'])
+
+const checkboxValue = computed({
+    get(){
+        return props.modelValue
+    },
+
+    set(checkBoxValue){
+        emit('update:modelValue', checkBoxValue)
+    }
+})
 
 </script>
 

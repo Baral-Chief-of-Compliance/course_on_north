@@ -12,6 +12,7 @@
         <!-- <v-btn @click="go_to_main"><div class="title-site">КУРС НА СЕВЕР!</div></v-btn>  -->
         <template v-slot:append>
             <v-app-bar-nav-icon class="mr-10" v-if="width <= 1555" color="white" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <!-- <burger-menu /> -->
         </template>
         <v-spacer v-if="width > 1555"></v-spacer>
         <div class="mr-11" v-if="width > 1555">
@@ -54,9 +55,10 @@
 </template>
 
 <script>
-import { set_part_of_navbar, get_name_part_of_navbar } from "@/localstorage/storage_of_location_site.js"
-import NavOptionButton from './../../components/test_1/details/NavOptionButton.vue'
-import { inject } from "vue"
+import { set_part_of_navbar, get_name_part_of_navbar } from "@/localstorage/storage_of_location_site.js";
+import NavOptionButton from './../../components/test_1/details/NavOptionButton.vue';
+import BurgerMenu from "@/components/BurgerMenu.vue";
+import { inject } from "vue";
 
 
 export default{
@@ -75,7 +77,8 @@ export default{
     },
 
     components: {
-        NavOptionButton
+        NavOptionButton,
+        BurgerMenu
     },
 
     created(){
