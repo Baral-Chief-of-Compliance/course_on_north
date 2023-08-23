@@ -4,6 +4,7 @@
         :color="props.color" 
         block
         @click="$emit('btn-funk')"
+        :type="props.type"
     >
         <div class="title" :style="{color: colorText}" >
             {{ props.title }}
@@ -18,6 +19,7 @@ const props = defineProps({
     title: String,
     color: String,
     colorText: String,
+    type: String
 });
 
 

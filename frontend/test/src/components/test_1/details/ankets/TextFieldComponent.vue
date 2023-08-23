@@ -3,10 +3,15 @@
         class="text_field_label"  
         variant="solo-filled"
         :color="mainColor" 
-        :label="props.title"
         v-model="valueField"
         :type="props.type"
+        :rules="props.rules"
     >
+        <template v-slot:label>
+            <span class="d-inline-block text-truncate" style="max-width: 600px;">
+                {{  props.title }}   
+            </span>
+        </template>
     </v-text-field>
 </template>
 
@@ -24,11 +29,17 @@ const props = defineProps({
     modelValue: {
         required: true,
         type: String
+    },
+
+    rules:{
+        type: Array,
     }
 })
 
 
 const emit = defineEmits(['update:modelValue'])
+
+const width = inject('width')
 
 
 const valueField = computed({

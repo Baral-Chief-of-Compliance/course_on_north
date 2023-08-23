@@ -1,6 +1,7 @@
 <template>
     <v-checkbox
         :color="props.color"
+        :rules="props.rules"
         v-model="checked"
     >
         <template v-slot:label>
@@ -25,6 +26,9 @@ const props = defineProps({
     modelValue: {
         required: true,
         type: Boolean
+    },
+    rules: {
+        type: Array
     }
 })
 

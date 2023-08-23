@@ -1,10 +1,23 @@
 <template>
-    <v-card>
-        <v-card-title>
-            {{ props.title }}
-        </v-card-title>
+    <v-card :width="(width) > 1280 ? (width / 2) : (width-50)">
 
-        <v-card-text>
+        <template v-slot:prepend>
+            <v-icon :color="mainColor" icon="mdi-mailbox" size="x-large"></v-icon>
+        </template>
+
+        <template v-slot:append>
+            <v-btn @click="closeDialog" variant="text" color="red">
+                <v-icon  size="x-large" color="red" icon="mdi-close"></v-icon>
+            </v-btn>
+        </template>
+        
+        <template v-slot:title>
+            <div :class="width > 420 ? 'title' : 'title-mobile'" :style="{color: addColor}">
+                {{ props.title }}
+            </div>
+        </template>
+
+        <v-card-text class="mt-5">
             <TextFieldComponentVue 
                 title="Страна"
                 v-model="modelValue.country"  />
@@ -53,22 +66,31 @@
 
         </v-card-text>
 
+        {{ str }}
+
         <v-card-actions>
-            <v-btn>Сохранить</v-btn>
+            <v-btn color="green">
+                <span class="btn-text" @click="props.savedData(modelValue, str)">Сохранить</span>
+            </v-btn>
             <v-spacer></v-spacer>
-            <v-btn>Закрыть</v-btn>
+
+            <v-btn color="red" @click="props.closeDialog">
+                <span class="btn-text">Закрыть</span>
+            </v-btn>
         </v-card-actions>
     </v-card>
 </template>
 
 <script setup>
-import { defineProps, defineEmits, computed } from 'vue';
+import { defineProps, defineEmits, computed, inject, ref } from 'vue';
 import TextFieldComponentVue from './TextFieldComponent.vue';
 import ComboboxComponent from './ComboboxComponent.vue';
 import TextAreaComponent from './TextAreaComponent.vue';
 
 const props = defineProps({
     title: String,
+    closeDialog: Function,
+    savedData: Function,
     modelValue: {
         required: true,
         type: Object
@@ -76,6 +98,12 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:modelValue'])
+
+const str = ref("ss")
+
+const width = inject('width')
+const addColor = inject('addColor')
+const mainColor = inject('mainColor')
 
 const cardInf = computed({
 
@@ -89,4 +117,25 @@ const cardInf = computed({
 })
 
 
+
 </script>
+
+<style scoped>
+ .title{
+    font-family: "CorkiRegular";
+    text-transform: uppercase;
+    font-size: 32px;
+ }
+
+ .title-mobile{
+    font-family: "CorkiRegular";
+    text-transform: uppercase;
+    font-size: 24px;
+ }
+
+ .btn-text{
+    font-family: "MontserratMedium";
+    font-weight: bold;
+    font-size: 18px;
+ }
+</style>

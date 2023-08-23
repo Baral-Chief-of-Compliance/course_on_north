@@ -5,7 +5,7 @@
         variant="tonal"
     >
         <template v-slot:title>
-            <div >
+            <div class="title">
                 {{ props.title  }}
             </div>
         </template>
@@ -18,6 +18,7 @@
         <CheckBoxComonent 
             v-model="checkboxValue"
             :title="props.checkboxLabel"
+            :rules="props.rules"
         />
     </v-alert>
     
@@ -39,6 +40,10 @@ const props = defineProps({
     modelValue: {
         required: true,
         type: Boolean
+    },
+
+    rules: {
+        type: Array
     }
 });
 
@@ -59,5 +64,10 @@ const checkboxValue = computed({
 <style scoped>
     .text{
         font-family: "MontserratMedium";
+    }
+
+    .title{
+        font-family: "MontserratMedium";
+        font-weight: bold;
     }
 </style>
