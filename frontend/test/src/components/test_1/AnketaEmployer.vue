@@ -9,23 +9,32 @@
         />
 
         <v-container>
-            <text-field-component title="Полное наименование" />
-            <text-area-component title="Юридический адрес" @click="dialogEntityAddress = true" />
+            <text-field-component v-model="nameCompany" title="Полное наименование" />
+            <text-area-component v-model="lawMail" title="Юридический адрес" @click="dialogEntityAddress = true" />
             
             <v-dialog
                 v-model="dialogEntityAddress"
                 width="auto" 
             >
-                <address-card title="Юридический адрес" />
+                <address-card :close-dialog="() => dialogEntityAddress = false" title="Юридический адрес" v-model="lawMail" />
             </v-dialog>
 
-            <v-btn color="success" @click="dialogSendVacancies = true" block>Прикрепить вакансии</v-btn>
+            <button-anket 
+                @click="dialogSendVacancies = true"
+                title="Прикрепить вакансии"
+                color-text="white"
+                :color="excelColor"
+            />
 
             <v-dialog
                 v-model="dialogSendVacancies"
                 width="auto"
             >
-                <v-card width="700px">
+                <vacancies-card :close-dialog="() => dialogSendVacancies = false" title="Прикрепить вакансии" />
+            </v-dialog>
+
+
+            <!-- <v-card width="700px">
                     <v-card-title>
                         Прикрепить вакансии
                     </v-card-title> 
@@ -54,17 +63,20 @@
                         <v-spacer></v-spacer>
                         <v-btn variant="elevated" color="error" @click="dialogSendVacancies = false">Закрыть</v-btn>
                     </v-card-actions>
-                </v-card>
-            </v-dialog>
+                </v-card> -->
 
-            <text-field-component title="ФИО контактного лица" />
-            <text-field-component title="Номер телефона" />
-            <text-field-component title="Электронная почта" />
+            <text-field-component v-model="contact" title="ФИО контактного лица" />
+            <text-field-component v-model="phoneNumber" title="Номер телефона" />
+            <text-field-component v-model="email" title="Электронная почта" />
             
             <v-file-input color="#2F5DA7" variant="solo-filled" label="Карточка предприятия"></v-file-input>
-
-            <v-btn @click="send_anketa()" id="send-btn" color="#2F5DA7" block>Отправить анкету</v-btn>
-
+            
+            <button-anket
+                type="submit"
+                title="Отправить анкету"
+                color-text="white"
+                :color="mainColor"
+            />
 
         </v-container>
     </v-container>
@@ -80,6 +92,9 @@ import AnketText from './details/ankets/AnketText.vue';
 import ComboboxComponent from './details/ankets/ComboboxComponent.vue';
 import AlertComponent from './details/ankets/AlertComponent.vue';
 import AddressCard from './details/ankets/AddressCard.vue';
+import VacanciesCard from './details/ankets/VacanciesCard.vue';
+import ButtonAnket from './details/ankets/ButtonAnket.vue';
+import { ref, inject } from 'vue';
 
 
 export default{
@@ -93,7 +108,60 @@ export default{
         AnketText,
         ComboboxComponent,
         AlertComponent,
-        AddressCard
+        AddressCard,
+        VacanciesCard,
+        ButtonAnket
+    },
+
+    setup(){
+        let nameCompany = ref("")
+
+        const lawMail = ref({
+            country: null,
+            subjectRF: null,
+            town: null,
+            street: null,
+            building: null,
+            apartment: null,
+            index: null,
+            additionalInfo: null,
+
+            toString: function(){
+                let value = "";
+
+                value = `${(this.country === null)? "" : this.country }` +
+                        `${(this.subjectRF === null) ? "" : ", " + this.subjectRF }` +
+                        `${(this.town === null) ? "" : ", " + this.town }` +
+                        `${(this.street === null) ? "" : ", " + this.street }` +
+                        `${(this.building === null) ? "" : ", " + this.building }` +
+                        `${(this.apartment === null) ? "" : ", " + this.apartment }` +
+                        `${(this.index === null) ? "" : ", " + this.index }` +
+                        `${(this.additionalInfo === null) ? "" : ", " + this.additionalInfo }` 
+                return value
+            }
+        })
+
+        let contact = ref("")
+
+        let phoneNumber = ref("")
+
+        let email = ref("")
+
+        
+        let excelColor = ref("#217346")
+
+        let mainColor = inject("mainColor")
+
+        return {
+            nameCompany,
+            lawMail,
+            contact,
+            phoneNumber,
+            email,
+            excelColor,
+            mainColor
+        }
+
     },
 
     data(){
@@ -122,11 +190,3 @@ export default{
     }
 }
 </script>
-
-<style>
-
-#send-btn{
-    color: white
-}
-
-</style>

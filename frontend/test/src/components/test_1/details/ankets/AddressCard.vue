@@ -66,11 +66,9 @@
 
         </v-card-text>
 
-        {{ str }}
-
         <v-card-actions>
-            <v-btn color="green">
-                <span class="btn-text" @click="props.savedData(modelValue, str)">Сохранить</span>
+            <v-btn color="green" @click="props.closeDialog">
+                <span class="btn-text">Сохранить</span>
             </v-btn>
             <v-spacer></v-spacer>
 
@@ -90,7 +88,6 @@ import TextAreaComponent from './TextAreaComponent.vue';
 const props = defineProps({
     title: String,
     closeDialog: Function,
-    savedData: Function,
     modelValue: {
         required: true,
         type: Object
@@ -99,22 +96,10 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
-const str = ref("ss")
-
 const width = inject('width')
 const addColor = inject('addColor')
 const mainColor = inject('mainColor')
 
-const cardInf = computed({
-
-    get(){
-        return props.modelValue
-    },
-
-    set(newInf){
-        emit('update:modelValue', newInf)
-    }
-})
 
 
 

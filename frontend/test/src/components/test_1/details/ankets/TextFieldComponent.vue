@@ -1,6 +1,6 @@
 <template>
     <v-text-field 
-        class="text_field_label"  
+        class="text_field_label mb-2"  
         variant="solo-filled"
         :color="mainColor" 
         v-model="valueField"

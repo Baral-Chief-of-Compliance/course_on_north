@@ -17,21 +17,21 @@
                 <text-field-component title="Возраст" type="number" v-model="age" />
                 <text-field-component :rules="emailRule" title="Электронный адрес" v-model="email"  />
 
-                <text-area-component v-model="mailArea"  title="Почтовый адрес" @click="dialogAddress = true" />
+                <text-area-component v-model="mail"  title="Почтовый адрес" @click="dialogAddress = true" />
                 <v-dialog
                     v-model="dialogAddress"
                     width="auto"
                 >
-                    <address-card :close-dialog="() => dialogAddress = false" :saved-data="createTextForArea"  title="Почтовый адрес" v-model="mail" />
+                    <address-card :close-dialog="() => dialogAddress = false"   title="Почтовый адрес" v-model="mail" />
                 </v-dialog>
 
 
-                <text-area-component title="Адрес регистрации" @click="dialogRegister = true" />
+                <text-area-component v-model="mailRegistration" title="Адрес регистрации" @click="dialogRegister = true" />
                 <v-dialog
                     v-model="dialogRegister"
                     width="auto"
                 >
-                    <address-card title="Адрес регистрации" />
+                    <address-card v-model="mailRegistration" :close-dialog="() => dialogRegister = false" title="Адрес регистрации" />
                 </v-dialog>
 
                 <text-field-component :rules="mobilePhoneRule" v-model="mobilePhone" title="Номер телефона" />
@@ -133,13 +133,53 @@ export default{
             building: null,
             apartment: null,
             index: null,
-            additionalInfo: null
+            additionalInfo: null,
+
+            toString: function(){
+                let value = "";
+
+                value = `${(this.country === null)? "" : this.country }` +
+                        `${(this.subjectRF === null) ? "" : ", " + this.subjectRF }` +
+                        `${(this.town === null) ? "" : ", " + this.town }` +
+                        `${(this.street === null) ? "" : ", " + this.street }` +
+                        `${(this.building === null) ? "" : ", " + this.building }` +
+                        `${(this.apartment === null) ? "" : ", " + this.apartment }` +
+                        `${(this.index === null) ? "" : ", " + this.index }` +
+                        `${(this.additionalInfo === null) ? "" : ", " + this.additionalInfo }` 
+                return value
+            }
+        })
+
+
+        const mailRegistration = ref({
+            country: null,
+            subjectRF: null,
+            town: null,
+            street: null,
+            building: null,
+            apartment: null,
+            index: null,
+            additionalInfo: null,
+
+            toString: function(){
+                let value = "";
+
+                value = `${(this.country === null)? "" : this.country }` +
+                        `${(this.subjectRF === null) ? "" : ", " + this.subjectRF }` +
+                        `${(this.town === null) ? "" : ", " + this.town }` +
+                        `${(this.street === null) ? "" : ", " + this.street }` +
+                        `${(this.building === null) ? "" : ", " + this.building }` +
+                        `${(this.apartment === null) ? "" : ", " + this.apartment }` +
+                        `${(this.index === null) ? "" : ", " + this.index }` +
+                        `${(this.additionalInfo === null) ? "" : ", " + this.additionalInfo }` 
+                return value
+            }
         })
 
         let mobilePhone = ref("")
         let dreamJob = ref("")
-        let family = ref("")
-        let childrens = ref("")
+        let family = ref(null)
+        let childrens = ref(null)
         let education = ref(null)
         let nameInstitution = ref("")
         let possibilityOfRelocation = ref(null)
@@ -233,17 +273,6 @@ export default{
             }
         ]
 
-        function createTextForArea(object, str){
-            for (let key in object){
-                if (key != null){
-                    str =+ String(object[key]);
-                }
-            }
-        }
-
-
-
-
         
         return { 
                     mainColor, 
@@ -277,7 +306,7 @@ export default{
                     chekboxConfrimationProgrammRule,
                     chekboxConfrimationPDRule,
                     mailArea,
-                    createTextForArea
+                    mailRegistration
                 }
     },
 

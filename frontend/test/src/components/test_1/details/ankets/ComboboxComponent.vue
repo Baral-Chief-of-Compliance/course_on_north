@@ -5,7 +5,7 @@
         :label="props.title"
         :items="props.items"
         v-model="valueComobox"
-        class="text_field_label"
+        class="text_field_label mb-5"
     >
         <template v-slot:item="{ index, item}">
             <v-list>

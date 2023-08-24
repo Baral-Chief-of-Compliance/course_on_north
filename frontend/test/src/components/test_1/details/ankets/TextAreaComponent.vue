@@ -1,10 +1,11 @@
 <template>
     <v-textarea
-        class="text_field_label"
+        class="text_field_label mb-2"
         variant="solo-filled"
         :color="mainColor"
         :label="props.title"
         v-model="valueField"
+        readonly
     >
     </v-textarea>
 </template>
