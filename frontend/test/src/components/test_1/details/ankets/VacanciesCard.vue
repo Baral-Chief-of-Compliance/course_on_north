@@ -39,6 +39,10 @@
                 />
 
             </v-alert>
+
+            <FileInputComponent 
+                   title="Прикрепить вакансии" 
+            />
         </v-card-text>
     </v-card>
 </template>

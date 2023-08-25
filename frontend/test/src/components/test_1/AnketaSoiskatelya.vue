@@ -17,7 +17,8 @@
                 <text-field-component title="Возраст" type="number" v-model="age" />
                 <text-field-component :rules="emailRule" title="Электронный адрес" v-model="email"  />
 
-                <text-area-component v-model="mail"  title="Почтовый адрес" @click="dialogAddress = true" />
+                <AddressCardInput  v-model="mail" title="Почтовый адрес" @onOpenDialog="() => dialogAddress = true" />
+
                 <v-dialog
                     v-model="dialogAddress"
                     width="auto"
@@ -25,14 +26,17 @@
                     <address-card :close-dialog="() => dialogAddress = false"   title="Почтовый адрес" v-model="mail" />
                 </v-dialog>
 
+                <div class="mt-8"></div>
+                <AddressCardInput  v-model="mailRegistration" title="Адрес регистрации" @onOpenDialog="() => dialogRegister = true" />
 
-                <text-area-component v-model="mailRegistration" title="Адрес регистрации" @click="dialogRegister = true" />
                 <v-dialog
                     v-model="dialogRegister"
                     width="auto"
                 >
                     <address-card v-model="mailRegistration" :close-dialog="() => dialogRegister = false" title="Адрес регистрации" />
                 </v-dialog>
+
+                <div class="mt-8"></div>
 
                 <text-field-component :rules="mobilePhoneRule" v-model="mobilePhone" title="Номер телефона" />
                 <text-field-component :rules="dreamJobRule" v-model="dreamJob" title="Желаемая профессия" />
@@ -60,6 +64,7 @@
                     :rules="chekboxConfrimationProgrammRule"
                 />
 
+                <div class="my-10"></div>
                 <FileInputComponent title="Прикрепить резюме" />
                 
                 <alert-component
@@ -97,6 +102,7 @@ import AlertComponent from './details/ankets/AlertComponent.vue';
 import ButtonAnket from './details/ankets/ButtonAnket.vue';
 import CheckBoxComonent from './details/ankets/CheckBoxComonent.vue';
 import FileInputComponent from './details/ankets/FileInputComponent.vue';
+import AddressCardInput from './details/ankets/AddressCardInput.vue';
 import { inject, ref } from 'vue';
 
 
@@ -113,7 +119,8 @@ export default{
         AlertComponent,
         ButtonAnket,
         CheckBoxComonent,
-        FileInputComponent
+        FileInputComponent,
+        AddressCardInput
     },
 
     setup(){

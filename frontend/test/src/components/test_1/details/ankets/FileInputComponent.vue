@@ -3,7 +3,7 @@
         variant="solo-filled"
         :label="title"
         :color="mainColor"
-        class="text_field_label mt-10 mb-5"
+        class="text_field_label mt-5 mb-5"
     >
     </v-file-input>
 </template>

@@ -9,74 +9,49 @@
         />
 
         <v-container>
-            <text-field-component v-model="nameCompany" title="Полное наименование" />
-            <text-area-component v-model="lawMail" title="Юридический адрес" @click="dialogEntityAddress = true" />
-            
-            <v-dialog
-                v-model="dialogEntityAddress"
-                width="auto" 
-            >
-                <address-card :close-dialog="() => dialogEntityAddress = false" title="Юридический адрес" v-model="lawMail" />
-            </v-dialog>
+            <v-form>
+                <text-field-component v-model="nameCompany" title="Полное наименование" :rules="nameCompanyRule" />
+                <address-card-input v-model="lawMail" class="mt-5" title="Юридеский адрес" @onOpenDialog="() => dialogEntityAddress = true "/>
+                
+                <v-dialog
+                    v-model="dialogEntityAddress"
+                    width="auto" 
+                >
+                    <address-card :close-dialog="() => dialogEntityAddress = false" title="Юридический адрес" v-model="lawMail" />
+                </v-dialog>
 
-            <button-anket 
-                @click="dialogSendVacancies = true"
-                title="Прикрепить вакансии"
-                color-text="white"
-                :color="excelColor"
-            />
+                <button-anket 
+                    @click="dialogSendVacancies = true"
+                    title="Прикрепить вакансии"
+                    color-text="white"
+                    :color="excelColor"
+                    class="mb-5"
+                />
 
-            <v-dialog
-                v-model="dialogSendVacancies"
-                width="auto"
-            >
-                <vacancies-card :close-dialog="() => dialogSendVacancies = false" title="Прикрепить вакансии" />
-            </v-dialog>
+                <v-dialog
+                    v-model="dialogSendVacancies"
+                    width="auto"
+                >
+                    <vacancies-card :close-dialog="() => dialogSendVacancies = false" title="Прикрепить вакансии" />
+                </v-dialog>
 
+                <text-field-component :rules="contactRule" v-model="contact" title="ФИО контактного лица" />
+                <text-field-component :rules="phoneNumberRule" v-model="phoneNumber" title="Номер телефона" />
+                <text-field-component :rules="emailRule" v-model="email" title="Электронная почта" />
+                
+                <FileInputComponent 
+                    title="Карточка предприятия" 
+                />
+                
+                <button-anket
+                    type="submit"
+                    title="Отправить анкету"
+                    color-text="white"
+                    :color="mainColor"
+                />
 
-            <!-- <v-card width="700px">
-                    <v-card-title>
-                        Прикрепить вакансии
-                    </v-card-title> 
-
-                    <v-card-text>
-                        <v-alert
-                            type="warning"
-                            title="Пример оформления вакансий"
-                        >
-                            Для примера оформления вакансий необходимо скачать таблицу.
-                            <a href="http://127.0.0.1:5000/send-table">
-                                <v-btn class="mt-2" color="#02723b"><v-icon color="white"  icon="mdi-file-excel-box">
-                                    </v-icon><span class="ml-2">
-                                        Скачать таблицу
-                                    </span>
-                                </v-btn>
-                            </a>
-                            
-                        </v-alert>
-
-                        <v-file-input color="#2F5DA7" variant="solo-filled" class="mt-5" label="Прикрепить таблицу с вакансиями"></v-file-input>
-
-                    </v-card-text>
-                    <v-card-actions>
-                        <v-btn variant="elevated" color="success" @click="dialogSendVacancies = false">Сохранить</v-btn>
-                        <v-spacer></v-spacer>
-                        <v-btn variant="elevated" color="error" @click="dialogSendVacancies = false">Закрыть</v-btn>
-                    </v-card-actions>
-                </v-card> -->
-
-            <text-field-component v-model="contact" title="ФИО контактного лица" />
-            <text-field-component v-model="phoneNumber" title="Номер телефона" />
-            <text-field-component v-model="email" title="Электронная почта" />
-            
-            <v-file-input color="#2F5DA7" variant="solo-filled" label="Карточка предприятия"></v-file-input>
-            
-            <button-anket
-                type="submit"
-                title="Отправить анкету"
-                color-text="white"
-                :color="mainColor"
-            />
+            </v-form>
+ 
 
         </v-container>
     </v-container>
@@ -94,6 +69,8 @@ import AlertComponent from './details/ankets/AlertComponent.vue';
 import AddressCard from './details/ankets/AddressCard.vue';
 import VacanciesCard from './details/ankets/VacanciesCard.vue';
 import ButtonAnket from './details/ankets/ButtonAnket.vue';
+import AddressCardInput from './details/ankets/AddressCardInput.vue';
+import FileInputComponent from './details/ankets/FileInputComponent.vue';
 import { ref, inject } from 'vue';
 
 
@@ -110,7 +87,9 @@ export default{
         AlertComponent,
         AddressCard,
         VacanciesCard,
-        ButtonAnket
+        ButtonAnket,
+        AddressCardInput,
+        FileInputComponent
     },
 
     setup(){
@@ -152,6 +131,51 @@ export default{
 
         let mainColor = inject("mainColor")
 
+
+        let nameCompanyRule = [
+            value => {
+                if (value) return true
+
+                return 'Полное наименование требует заполнения'
+            }
+        ]
+
+        let contactRule = [
+            value => {
+                if (value) return true
+
+                return 'ФИО контактного лица требует заполнения'
+            }
+        ]
+
+        let phoneNumberRule = [
+            value => {
+                    if (value) return true
+                    
+                    return 'Номер телефона требует заполнения'
+            },
+
+            value => {
+                    if(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value)) return true
+
+                    return 'Номер телефона должен быть достоверным'
+            }
+        ]
+
+        let emailRule = [
+            value => {
+                if (value) return true
+
+                return 'Электронный адрес требует заполнения'
+            },
+
+            value => {
+                if(/.+@.+\..+/.test(value)) return true
+
+                return 'Электронная почта должна быть достоверной'
+            }
+        ]
+
         return {
             nameCompany,
             lawMail,
@@ -159,7 +183,11 @@ export default{
             phoneNumber,
             email,
             excelColor,
-            mainColor
+            mainColor,
+            nameCompanyRule,
+            contactRule,
+            phoneNumberRule,
+            emailRule
         }
 
     },
@@ -182,6 +210,19 @@ export default{
 
         send_anketa(){
             this.$router.push({name: 'ThanksAnketa'})
+        },
+
+
+        async submit (event){
+            const results = await event
+
+            console.log(JSON.stringify(results, null, 2))
+
+            if (results.valid){
+                console.log('it is work')
+            } else{
+                window.scrollTo({ top: 0, behavior: 'smooth'})
+            }
         }
     },
 
